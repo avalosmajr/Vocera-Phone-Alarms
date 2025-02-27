@@ -49,8 +49,13 @@ Describe whether and how you used AI/LLMs when completing this project:
 
 Optionally (for engagement points) reflect on your use of AI:
 
+AI or ChatGPT was used throughout this draft to debug personal code, help understand/create comments, obtain opinions/ideas, and write code. It should be noted that it was unclear what was classified as “text” from ChatGPT before submission; for instance, ChatGPT did aid in creating graphs. 
+However, there is uncertainty about whether the axis and plot title(s) are classified as code or text since it was created by ChatGPT when asked for help for code. Going forward, lines that obtain ChatGPT will be marked. 
 
-
+I believe the usage of ChatGPT is appropriate and helpful but highly stressful. I say this because if I do not know something (e.g., geom_line), I can search for it and have the definition within seconds instead of logging into Canvas, finding the correct slides, and then going through them. 
+It is beneficial academically only if you create notes as you go; if you do not, it becomes passive, which I officially learned last night. I initially thought I could remember certain things because, at the moment, it is like, Oh, I know this now. The truth is you still need to take notes actively, but I am discovering how to learn, log, and use this. 
+I debated on whether to use any AI because of the plagiarism portion of it. I just started using AI this quarter because I realized it is the future, and I am putting myself at a disadvantage by not using it at times, but there are so many different beliefs on plagiarism and more. I am an anxious person, so using AI is a double-edged sword. 
+For instance, I freaked out and still do at times when I use Grammarly; it is a very odd time to me because plagiarism and AI are subjective (at least I think). The AI and plagiarism situation can ruin a person's career, which I am unsure is fair since this is a transition/learning period for countless. 
 
 
 ## Overall requirements
