@@ -1,4 +1,4 @@
-# Final-Research-Project-Reattempt
+# Final-Research-Project-Official
 Final Project w/ quarto and apaquarto re-attempt  
 
 #ProjectUpdate
