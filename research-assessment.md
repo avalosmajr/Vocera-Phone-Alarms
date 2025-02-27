@@ -100,7 +100,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2.  Uses relative paths correctly
     3.  Does not have duplicate/redundant elements
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments: 
 
@@ -109,7 +109,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     1.  Includes description of repo purpose, data use, research questions, etc.
     2.  Outlines the repo structure with file tree or similar
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -118,7 +118,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     1.  All scripts run and all notebooks render if the repo is cloned to another location
     2.  .gitingore comprehensively excludes unnecessary, private, and very large files and are commented appropriately
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -127,7 +127,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     1.  Used frequent, informative commit messages
     2.  Relies on document revisions rather than manually created new versions
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -140,7 +140,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
         2. When a reader opts-in to installing packages by uncommenting the code, it runs without errors 
     2. Uses more than one function to install/load/require packages (including those used in commented code)
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
         
@@ -149,7 +149,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     1. Uses all three types of operators
     2. Uses multiple operators in data transformation pipelines and/or inline R code
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -159,7 +159,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. User-defined function(s) run(s) without error and produces expected output in at least 2 contexts
     3. Functions are well-documented with comments
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -168,7 +168,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     1. Uses conditional in multiple contexts, including dplyr pipelines
     2. Uses multiple types of conditional/loop functions (e.g., `if_else()`, `case_when()`, `for`, `while`)
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
         
@@ -179,7 +179,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. Writes out intermediate and/or final datasets in code chunks or sourced scripts
     3. Uses only relative paths that run without error when repo is cloned
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -189,7 +189,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. Uses at least 1 `tidyr` function in a data transformation pipeline
     3. Combines `dplyr` and `tidyr` functions in a data transformation pipeline
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -198,7 +198,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     1. Uses ate least 2 unique `stringr` functions 
     2. Uses `stringr` functions in a data transformation pipeline
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -208,7 +208,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. Uses `forcats` functions in a data transformation pipeline
     - NOTE: Though they are base R functions, `factor()` and `levels()` can be used to meet this objective as long as they are used in a way that demonstrates the same skills as `forcats` functions, which should involve including optional arguments
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -219,7 +219,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     1. Creates at least 2 figures with different `geom_*` layers (e.g., a scatter plot and a bar plot)
     2. At least one plot is multi-variable
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -227,7 +227,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
 
     1. Uses at least 2 unique data-mapped `aes()` arguments (e.g., color, shape, size) to group data in a plot in one or multiple plots
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
         
@@ -239,7 +239,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. Combines facets with other dynamic grouping aesthetics
       1. If data only includes 1 sensible grouping variable, it may be used for both the faceting and groupin aes.  
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
         
@@ -250,7 +250,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     3. Variables and labels display in plain English (e.g., "Age (years)" not "child_age_yrs"
     4. Uses at least 1 static aesthetic (e.g., color, shape, size) that improves visual clarity without mapping to data
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -274,7 +274,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     3. Presents results in narrative text, table, or plot
     - NOTE: This objective may be met with only numeric or factor data analyses if they are sufficiently complex (at Dr. Dowling's discretion)
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -285,7 +285,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     3. Discriminates between informative and non-informative statistics and presents only the former in narrative text
     4. Uses dynamic inline R code to render data-dependent text
 
-        -   [ ] Objective attempt
+        -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
