@@ -9,4 +9,4 @@ Final Project w/ quarto and apaquarto re-attempt
   2) Following this, I will de-identify the sensitive and save it to the Box as an Excel (box and Excel will serve as my intermediate). For safety reasons, I will use the         box as the intermediate.
   3) I will then upload the de-identified data to R to be analyzed. 
 - The QI was sent in on 1/24/25. Now waiting for the decision.
-- 
+- It was determined that I will have to create a fake data set.
