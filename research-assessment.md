@@ -24,23 +24,23 @@ To complete this assessment:
 
 ## Basic information
 
-Name:
+Name: Michael Avalos Jr. 
 
-CNetID:
+CNetID: 12414301
 
-Section:
+Section: Two
 
-Research project title:
+Research project title: "Reducing Missed Patient Turns: A Quality Improvement Initiative Through Vocera Phone Alarms"
 
-Submission date:
+Submission date: 2/26/24
 
-Submission number (1-4):
+Submission number (1-4): 1 
 
-Project GitHub repository URL:
+Project GitHub repository URL: https://github.com/avalosmajr/Vocera-Phone-Alarms/tree/main 
 
-Filename of manuscript .qmd:
+Filename of manuscript .qmd: https://github.com/avalosmajr/Vocera-Phone-Alarms/blob/main/Fake_Data.qmd 
 
-Filename of knitted .pdf:
+Filename of knitted .pdf: https://github.com/avalosmajr/Vocera-Phone-Alarms/blob/main/FinalProjectDraft.qmd
 
 
 ## AI Statement
