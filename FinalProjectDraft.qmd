@@ -1,0 +1,165 @@
+---
+title: "Reducing Missed Patient Turns: A Quality Improvement Initiative Through Vocera Phone Alarms"
+
+shorttitle: "Reducing Missed Patient Turns Through Vocera Phone Alarms"
+
+author: 
+  - name: Michael Avalos Jr. 
+    corresponding: True 
+    email: avalosmajr@uchicago.edu
+    roles: -----------------------------
+      - 
+      - 
+    affiliations:
+      - id: 
+        name: "University of Chicago"
+          group:
+        department: Biological Sciences Division 
+        address: 5841 S. Maryland Ave.
+        city: Chicago
+        region: IL
+        country: USA
+        postal-code: 60637
+author-note:
+  disclosures: 
+  related-report: 
+  gratitude: 
+Abstract:
+Keywords: []
+floatsintext: 
+numbered-lines:
+bibliography:
+suppress-title-page:
+link-citations:
+draft-data:
+lang: 
+language:
+  citation-last-author-separator: "and"
+  citation-masked-author: "Masked Citation" 
+  citation-masked-date: "n.d."
+  citation-masked-title: "Masked Title" 
+  email: "Email"
+  references-meta-analysis: "References marked with an asterisk indicate studies included in the meta-analysis." 
+format:
+apaquarto-html: default
+  apaquarto-docx: default
+  apaquarto-typst: 
+    keep-typ: true
+    list-of-figures: true
+    list-of-tables: true
+    toc: true
+  apaquarto-pdf:
+    # Can be jou (journal), man (manuscript), stu (student), or doc (document)
+    documentmode: man
+    keep-tex: true
+    # You can turn these off for a simple document
+    # But you probably want them for a thesis or chapter
+    list-of-figures: true
+    list-of-tables: true
+    # Change default output size of figures unless specified in the chunk
+    fig-width: 2
+    fig-height: 2
+    out-width: 40%
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Load necessary packages
+library(conflicted)
+library(tidyverse)
+library(papaja)
+library(flextable)
+library(ftExtra)
+library(knitr)
+library(broom)
+
+# In addition to strategically ordering your library calls, 
+# you can use the conflicts_prefer function to specify which 
+# package's function to use when there are multiple options.
+conflicts_prefer(dplyr::filter, .quiet = TRUE)
+conflicts_prefer(flextable::separate_header, .quiet = TRUE)
+conflicts_prefer(flextable::theme_apa, .quiet = TRUE) # we know that we never want the papaja one!
+
+# Set seed
+set.seed(1234)
+
+# Generate r-references.bib file (see explanation in the Methods section)
+papaja::r_refs(file = "r-references.bib")
+
+```
+
+
+```
+Format note: Independent Project Rough Draft should be 3-4 double-spaced pages, excluding the attached bibliography.
+```
+
+
+```
+## Introduction (approximately ½ page)
+
+
+
+
+## Research Question (1-2 sentences)
+The project aims to reduce missed turns within the SICU and BICU through alarms on the nurse's Vocera phones, reminding them to turn their patient(s) every two hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the EHR.  
+
+
+
+## Literature Review (Approximately 1 page)
+For approximately three decades, the Braden Scale has been adopted and served as the primary practice for PI prevention within the United States; nevertheless, PIs remain a concern for hospitals, especially within the intensive care units (ICUs).1-3 As technology continues to evolve, it is necessary to utilize even its most simplistic offers, such as alarms, which have shown to be effective in PI prevention. A computer on-screen list, which served as a reminder system, helped the healthcare staff to know the patient’s most recent risk assessment, PI location, and arrival date.4 The reminder system demonstrated its effectiveness through a reduction of PIs developed.4 Group A, who was not exposed to the intervention in 2009, reported 84 PIs out of the 9,263 patients, while Group B, who were involved in the reminder system, reported that out of the 9,220 patients, only 59 developed PIs.4 Moreover, technology in PI prevention consists of various interventions like wearable sensors, which have been classified as “cost-effective”, decrease HAPI development, and improve turn compliance; however, the claim can be made that additional efforts should be made before the purchases of LEAF Sensors at $250/sensor.5 The Vocera phone alarms may aid in reminding nurses to input turn documentation, turn patients every two hours, and improve patient outcomes through a more cost-effective approach. The intervention shows there is no current need to conduct human subject testing to improve the prevention of PIs; instead, it is necessary to equip nurses better to allow for them to provide the most efficient care.
+
+
+## Methods (Approximately 1/2 page)
+Data storage: The intervention’s effectiveness is analyzed every week through measurements of patient initials, room number, MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), total miss
+
+EHR data collection: Data will be extracted from patients before and during the intervention (7/1/2024 to 5/1/2025). Patients prior to the implementation will undergo the same weekly form measurements as mentioned above; additional variables such as race, gender, age, weight, diseases, and history of PIs will be recorded for both pre-intervention and intervention patients to help illustrate potential unforeseen correlations to missed turns. Information collected from the EHR for patients includes MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), turn documentation, race, gender, age, weight, diseases, and history of PIs. Information collected from the EHR for nurses includes name, shift, experience, and turn documentation. 
+
+## Project Deliverables (Approximately 1/2 page)
+
+
+
+
+## Expected Results (1-2 sentences)
+
+
+
+## Timeline (1/4 - 1/2 page)
+
+
+
+## Conclusion (Approximately 1/4 page)
+
+
+
+
+## References 
+Kring D. L. (2007). Reliability and validity of the Braden Scale for predicting pressure ulcer risk. Journal of wound, ostomy, and continence nursing : official publication of The Wound, Ostomy and Continence Nurses Society, 34(4), 399–406. https://doi.org/10.1097/01.WON.0000281656.86320.74
+Lyder CH, Ayello EA. Pressure Ulcers: A Patient Safety Issue. In: Hughes RG, editor. Patient Safety and Quality: An Evidence-Based Handbook for Nurses. Rockville (MD): Agency for Healthcare Research and Quality (US); 2008 Apr. Chapter 12. Available from: https://www.ncbi.nlm.nih.gov/books/NBK2650/
+Wei, M., Wu, L., Chen, Y., Fu, Q., Chen, W., & Yang, D. (2020). Predictive Validity of the Braden Scale for Pressure Ulcer Risk in Critical Care: A Meta-Analysis. Nursing in critical care, 25(3), 165–170. https://doi.org/10.1111/nicc.12500
+4) Sebastián-Viana, T., Losa-Iglesias, M., González-Ruiz, J. M., Lema-Lorenzo, I., Núñez-Crespo, F. J., Salvadores Fuentes, P., & ARCE team (2016). Reduction in the incidence of pressure ulcers upon implementation of a reminder system for health-care providers. Applied nursing research : ANR, 29, 107–112. https://doi.org/10.1016/j.apnr.2015.05.018
+Crotty, A., Killian, J. M., Miller, A., Chilson, S., & Wright, R. (2023). Using wearable technology to prevent pressure injuries: An integrative review. Worldviews on evidence-based nursing, 20(4), 351–360. https://doi.org/10.1111/wvn.12638
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
