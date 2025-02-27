@@ -4,27 +4,6 @@ format: html
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
-
 ```{r}
 #| label: setup
 library(tidyverse)
@@ -68,10 +47,10 @@ fake_data
 ```
 
 ```{r}
-## Descriptive stat
+## Descriptive stats pt. 1
 fake_data %>%
   summarize(
-    mean_age = mean(Age, na.rm = TRUE),
+    mean_age = mean(Age, na.rm = TRUE), # na.rm means it will ignore any missing values
     sd_age = sd(Age, na.rm = TRUE),
     mean_los = mean(`Length of Stay`, na.rm = TRUE),
     sd_los = sd(`Length of Stay`, na.rm = TRUE)
@@ -88,81 +67,82 @@ fake_data %>%
   `Mean Length of Stay` = `mean_los`,
   `Standard Deviation Length of Stay` = `sd_los`)
 
+ ########################### ########################### ###########################
+
 # Type of Event Occurrences
 fake_data %>%
-  count(`Type of Event`, sort = TRUE)
-```
-
-```{r}
-# Analyze the data for Patient(s)meanstdminmax
-fake_data %>%
-  count(`Patient ID`, sort = TRUE) %>%
-  summarize(across(everything(), ~ length (unique(.))))
-  
+  count(`Type of Event`, sort = TRUE) # sort = True places it in descending order 
 ```
 
 ```{r}
 ## NURSE DATA ANALYSIS PT.1
 ## 1. How many events were associated with a nurse  
-fake_nurse_event_data <- fake_data 
+fake_nurse_event_data <- fake_data # Moving original set into new one (fake_nurse_event_data) 
 fake_nurse_event_data
 fake_nurse_event_data %>%
   count(`Nurse`, sort = TRUE)
 
+ ########################### ########################### ###########################
+
 ## 2. Percentage and which nurses committed which event for instance Nurse C was associated with 9 events; therefore, how many were missed vs repeated turns
 fake_nurse_event_data_Perc <- fake_nurse_event_data %>%
   group_by(`Nurse`, `Type of Event`) %>%
-  summarize(Count = n(), .groups = "drop") %>%
-  group_by(Nurse) %>%
-  mutate(Percentage = (Count / sum(Count))*100) %>%
- # Helping to move the data from long to wide data format
-  pivot_wider(
+  summarize(Count = n(), .groups = "drop") %>% # .groups = "drop" will remove the grouping basically groups it to do count then ungroups it
+  group_by(Nurse) %>% # We are now grouping 
+  mutate(Percentage = (Count / sum(Count))*100) %>% # Count/sum(count) will calc propor then mult by 100 helps to create %
+  pivot_wider( # Helping to move the data from long to wide data format below
     names_from = `Type of Event`, 
     values_from = c(Count, Percentage),
-    values_fill = list(Count = 0, Percentage = 0)) %>% 
+    values_fill = list(Count = 0, Percentage = 0)) %>% # If anything is missing then na WILL NOT be placed but instead WILL have 0 
   ungroup()
 
 # Check
 fake_nurse_event_data_Perc
 
-## 2. Which nurses committed which event for instance Nurse C was associated with 9 events; therefore, how many were missed vs repeated turns
-# Helping to move the data from long to wide data format
+ ########################### ########################### ########################### 
+
+## 3. Which nurses committed which event for instance Nurse C was associated with 9 events; therefore, how many were missed vs repeated turns
 fake_nurse_event_data <- fake_nurse_event_data %>%
   group_by(`Nurse`, `Type of Event`) %>%
   summarize(Count = n(), .groups = "drop") %>%
-  pivot_wider(names_from = `Type of Event`, values_from = Count, values_fill = list(Count = 0))
+  pivot_wider(names_from = `Type of Event`, values_from = Count, values_fill = list(Count = 0)) # Helping to move the data from long to wide data format
 
-## 3.2. Fixing the deci placement 
+ ########################### ########################### ###########################
+
+## 2.1. Fixing the deci placement 
 fake_nurse_event_data_Perc <- fake_nurse_event_data_Perc %>%
   mutate(
   `Percentage_Missed Turn` = round(`Percentage_Missed Turn`, 1),
   `Percentage_Repeated Turn` = round(`Percentage_Repeated Turn`, 1))
 
-# Check
+ # Check 
 fake_nurse_event_data_Perc
 
-## 3.3. Fixing the names 
+ ########################### ########################### ########################### 
+
+## 2.2. Fixing the names 
   fake_nurse_event_data_Perc <- fake_nurse_event_data_Perc %>%
   rename(
     `Percentage Missed Turn` = `Percentage_Missed Turn`,
     `Percentage Repeated Turn` = `Percentage_Repeated Turn`,
     `Count Missed Turn` = `Count_Missed Turn`,
     `Count Repeated Turn` = `Count_Repeated Turn`)
-  
+ 
 # Check
 fake_data_Repeated <- fake_data
 fake_data_Repeated <- fake_data_Repeated %>%
-mutate(Repeated_Turn_YesorNo = if_else(str_detect(`Type of Event`, "Repeated Turn"), "Yes", "No")) %>%
-  mutate(Repeated_Turn_YesorNo = str_to_upper(Repeated_Turn_YesorNo))
+mutate(Repeated_Turn_YesorNo = if_else(str_detect(`Type of Event`, "Repeated Turn"), "Yes", "No")) %>% # str_detect will return a true/false or yes/no
+  mutate(Repeated_Turn_YesorNo = str_to_upper(Repeated_Turn_YesorNo)) # str_to_upper will cap all letters while str_to_title does first letter
 
 # Check
 fake_data_Repeated 
 
+ ########################### ########################### ###########################
 
 # Capitalize Nurse Letters
 fake_data <- fake_data %>%
   mutate(Nurse = str_to_title(Nurse),
-        `Nurse Associated With Event` = str_to_title(`Nurse Associated With Event`))
+        `Nurse Associated With Event` = str_to_title(`Nurse Associated With Event`)) # str_to_title does first letter ; REMINDER IT IS NOT THE TITLE ITS THE DATA IN COLUMN
 
 # Check
 fake_data
@@ -175,22 +155,24 @@ fake_data
 # Convert the data back to long
 fake_nurse_event_data_Perc_long <- fake_nurse_event_data_Perc
 fake_nurse_event_data_Perc_long <- fake_nurse_event_data_Perc_long %>%
- pivot_longer(cols = c(`Count Missed Turn`, `Count Repeated Turn`),
+pivot_longer(cols = c(`Count Missed Turn`, `Count Repeated Turn`), 
               names_to = "Event Type", values_to = "Count")
-              
+
+########################### ########################### ###########################
+
 # 1 Bar Chart (# of Events / Nurse)
-ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event Type`)) +
+ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event Type`)) + #aes is aesthetic, fill is type of aesthetic and here bars are filled based on event type
   geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
+  # geom_bar creates bar char, stat= "identity" uses the values from data set, position = position_dodge helps make sure the bars are not stacked 
   labs(title = "Number of Events Per Nurse", x = "Nurse", y = "Event Count") +
-  scale_fill_manual(values = c("Count Missed Turn" = "darkblue", "Count Repeated Turn" = "darkorange")) +
+  scale_fill_manual(values = c("Count Missed Turn" = "darkblue", "Count Repeated Turn" = "darkorange")) + # scale_fill_manual allows for you to place the colors manually 
   theme_minimal() +
     theme(
-      axis.text.x = element_text(angle = 45, hjust = 1, size = 8),
+      axis.text.x = element_text(angle = 45, hjust = 1, size = 8), # hjust used for overlap prevention for text  
       plot.title = element_text(size = 20, face = "bold"),      
-      panel.spacing = unit(.5, "lines"),
       legend.position = "bottom",
       legend.title = element_blank(),
-      panel.grid.minor = element_blank())
+      panel.grid.minor = element_blank()) # panel.grid.minor helps get rid of the grid lines
 
 ```
 
@@ -199,7 +181,7 @@ ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event T
 ## Check how nurses do overtime 
 fake_nurse_event_time_date <- fake_data
 fake_nurse_event_time_date <- fake_nurse_event_time_date  %>%
-  mutate(`Week of Event` = as.Date(cut(`Week of Event`, breaks = "week"))) %>%
+  mutate(`Week of Event` = as.Date(cut(`Week of Event`, breaks = "week"))) %>%  # as.Date MAKE SURE D is CAP but it will convert val to date, cut whatever into a category, breaks will help specify the point where it should be cut off
   group_by(`Week of Event`, `Nurse`, `Type of Event`) %>%
   summarize(Count = n(), .groups = "drop") 
 
@@ -211,10 +193,10 @@ fake_nurse_event_time_date
 ```{r}
 ## NURSE DATA ANALYSIS PLOTS pt. 2
 ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = `Nurse`, group = interaction(`Nurse`, `Type of Event`))) +
-  geom_line(size = 1) +
-  geom_point(size = 2) +
-  geom_smooth(aes(group = `Type of Event`), method = "loess", se = FALSE, linetype = "dashed", color = "black", size = 1.2) +
-  scale_x_date(date_labels = "%b-%Y", date_breaks = "1 month")+
+  geom_line(size = 1) + # geom_line is line graph
+  geom_point(size = 2) + # geom_point is scatter graph
+  geom_smooth(aes(group = `Type of Event`), method = "loess", se = FALSE, linetype = "dashed", color = "black", size = 1.2) + # geom_smooth is trend line (smooth)
+  scale_x_date(date_labels = "%b-%Y", date_breaks = "1 month")+ # date_labels = "%b-%Y" will help for it to be month-year
   facet_grid(rows = vars(`Type of Event`), scales = "free")+
   labs(title = "Nurse Turn Event Trends Over Time",
        x= "Week of Event",
@@ -228,7 +210,7 @@ ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = 
       legend.position = "right",
       legend.direction = "vertical",
       legend.key.size = unit(0.6, "cm"),
-      panel.spacing = unit(.5, "lines")
+      panel.spacing = unit(.5, "lines") # helps spacing want to use when facets are 
        )
 
 
@@ -238,16 +220,16 @@ ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = 
 ## NURSE DATA ANALYSIS PT.3
 fake_nurse_shift <- fake_data %>%
 mutate(`Nurse` = as.factor(`Nurse`),
-    Hour = as.numeric(format(strptime(`Time of Event`, format = "%H:%M:%S"), "%H")), 
+    Hour = as.numeric(format(strptime(`Time of Event`, format = "%H:%M:%S"), "%H")), # parses chr string to date-time  
     Shift_Type = case_when(
       Hour >= 6 &
       Hour < 18 ~ "Day", 
 TRUE ~ "Night")) %>%
 mutate(
-  Shift_Type = fct_recode(Shift_Type, "Day Shift" = "Day", "Night Shift" = "Night"),
-   Shift_Type = fct_relevel(Shift_Type,"Day Shift", "Night Shift"),
+  Shift_Type = fct_recode(Shift_Type, "Day Shift" = "Day", "Night Shift" = "Night"), # Renaming forcat func
+   Shift_Type = fct_relevel(Shift_Type,"Day Shift", "Night Shift"), # reorder levels forcat func
   `Type of Event` = factor(`Type of Event`, levels = c("Missed Turn", "Repeated Turn")),
-  `Nurse` = fct_lump(`Nurse`, n = 4)) %>%
+  `Nurse` = fct_lump(`Nurse`, n = 4)) %>% # creates other categ forecat func
    select(-Hour)
   
 # Check
@@ -259,8 +241,8 @@ fake_nurse_shift
 ## NURSE DATA ANALYSIS PLOT PT.3
 ggplot(fake_nurse_shift, aes(x= `Shift_Type`, fill= `Type of Event`)) +
   geom_bar(position = "stack", width = 0.6, color = "black") +
-  geom_text(stat = "count", aes(label = ..count..),
-    position = position_stack(vjust = 0.5), size = 5, color = "white") +
+  geom_text(stat = "count", aes(label = ..count..), 
+    position = position_stack(vjust = 0.5), size = 5, color = "white") + # geom_text is labels/text/values for bars here, aes(label = ..count..) is just the count for each category, position _stack places the label inside the bars, vjust helping to center text (vertically remember hjust)
   scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
   labs(title = "Event Occurrence by Shift",
        x = "Shift Type",
@@ -323,7 +305,7 @@ ggplot(fake_nurse_weekdayend, aes(x = Day_Type, fill = `Type of Event`)) +
 ## Patient Analysis pt 1
 fake_patient_event <- fake_data
 fake_patient_event <- fake_patient_event %>%
-  mutate(Age_Group = cut(Age, breaks = c(20, 40, 60, 80, 100),
+  mutate(Age_Group = cut(Age, breaks = c(20, 40, 60, 80, 100), # cut whatever into a category, breaks will help specify the point where it should be cut off
                          labels = c("20-39", "40-59", "60-79", "80+")))
 
 # Check
@@ -356,16 +338,10 @@ ggplot(fake_patient_event, aes(x = Age_Group, fill = `Type of Event`)) +
 ```
 
 ```{r}
-## Patient Analysis pt 2
-
-
-```
-
-```{r}
 ## Patient Analysis Plot pt 2
 ## Event type and lOS
 ggplot(fake_data, aes(x= `Type of Event`, y = `Length of Stay`, fill = `Type of Event`)) +
-  geom_boxplot(outlier.color = "red", outlier.shape = 16, outlier.size = 2) +
+  geom_boxplot(outlier.color = "red", outlier.shape = 16, outlier.size = 2) + # outlier. is just outliers 
   scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
   labs(title = "Relationship Between Event Type and Length of Stay",
        x= "Event Type",
@@ -402,7 +378,6 @@ fake_data <- fake_data %>%
   )
 
 
-
 ## High Risk and Patient Stay
 ## Less than 9 is considered severe
 fake_data <- fake_data %>%
@@ -430,6 +405,6 @@ fake_data %>%
 # Write fake_data to a .csv file 
 getwd()
 write_csv(fake_data, "fake_data.csv")
-fake_data <- read_csv("/Users/michaelavalosjr./Repos for Rstudio/Please/fake_data.csv")
+fake_data <- read_csv("/Users/michaelavalosjr./Repos for Rstudio/Vocera-Phone-Alarms/fake_data.csv")
 
 ```
