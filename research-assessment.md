@@ -419,11 +419,24 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
 Optionally (for engagement points) write a brief reflection about your work on this project. You can use this space to answer the following questions, but feel free to ignore these questions and write about whatever you think is most important.
 
 - What was the most challenging aspect of this project?
-- What was the most rewarding aspect of this project?
-- What would you do differently if you were to start over?
-- What did you learn from this project that you will carry forward to future projects?
-- What are you most proud of in this project?
+I think the most challenging aspect is finding ways to incorporate everything. You have to find different approaches to make things work when you are trying to check all of the objectives; for instance, 
+turning characters into factors so you can use forecats but then NA shows up as your values forcing you to figure that out part is necessary if you want to check that objective. If it was not mandatory 
+I would just have left it as a chr value. 
 
+- What was the most rewarding aspect of this project?
+I find it extremely rewarding when you spend hours and it is time for bed. I know this is not a deep inspirational academic answer, but it is honest. 
+
+- What would you do differently if you were to start over?
+I would be more patient with myself and the process. I added comments later which kind of hurt me. I say that because I would hit errors in my run then refer to previous chunks or lines 
+that had no comments. In the moment its like oh this is this and that is that and you enter the state of flow and continue without making notes and I feel that may be a bio studying side effect
+because it is like this leads to this to this to this and allows for this but here that is not how it works here one tiny thing in the process can change the course of everything AND not everything is 
+that is written is correct which I read over it with that thought.
+
+- What did you learn from this project that you will carry forward to future projects?
+MAKE NOTES AS YOU GO. DO NOT CARE HOW SILLY THE NOTE IS IF YOU FORGET WHAT ANYTHING IS JUST WRITE IT.
+
+- What are you most proud of in this project?
+Trying my best based on the circumstances. 
 
 Alternatively/additionally in mind some of the suggested ways to earn engagement points, and expand on this (or other aspects of your project) in your reflection:
 
