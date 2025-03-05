@@ -108,6 +108,10 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
         -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments: 
+            1. Repo/file/folder names should be informative and relevant to content, not class context (e.g., nrdowling/infant-gesture not nrdowling/d2m-project; infant-gestures.qmd not d2m-final.qmd).
+            2. Repo should not contain any files unrelated to the project (e.g, files from the example apaquarto manuscript)
+            3. Top-level of repo should contain only necessary files (typically the .qmd, .bib., this assessment, the rendered pdf, README, .gitignore); other files should be organized into subdirectories
+            4. Your primary manuscript should be the only .qmd; data preparation should be in an .R script
 
 2.  Maintain an informative and up-to-date README.md
 
@@ -117,6 +121,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
         -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
+            1. README should minimally contain 1) description of project objective and data and 2) description of repo structure or file tress
 
 3.  integrate a GitHub repo with an R studio project, including .gitignore file
 
@@ -126,6 +131,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
         -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
+            1. .gitignore should include (minimally) a localonly folder and pdf render files (e.g., the *_files folder, .ttt, .tex., .log, etc.), as well as comments describing the ignored items (in addition to the default ignored items if you’re using a template)
 
 4.  effectively use version control
 
@@ -133,7 +139,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2.  Relies on document revisions rather than manually created new versions
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
 
 ### R programming
@@ -148,6 +154,9 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
         -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
+            1. Use more than 1 function to install/require/load packages; functions that (may) install something on your reader’s machine should be commented out
+            2. Refer to the d2mr resources page for a list of the packages you can load without a commented out install line.
+            3. Do not load unused packages
         
 6.  Use arithmetic, comparison, and logical operators
 
@@ -155,7 +164,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. Uses multiple operators in data transformation pipelines and/or inline R code
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
 
 7.  Parse and define functions and arguments
@@ -167,6 +176,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
         -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
+            1. Define and use a function using function() with at least 1 argument
 
 8.  Parse and write conditional statements and/or loops
 
@@ -174,7 +184,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. Uses multiple types of conditional/loop functions (e.g., `if_else()`, `case_when()`, `for`, `while`)
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
         
 
@@ -187,6 +197,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
         -   [X] Objective attempt
         -   [ ] Objective met
         -   Grader comments:
+            1. Cannot run due to absolute paths; all paths should be relative to the top level of the repo
 
 10. Use `dplyr` and `tidyr` functions to transform data
 
@@ -195,7 +206,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     3. Combines `dplyr` and `tidyr` functions in a data transformation pipeline
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
 
 11. Use `stringr` functions to work with string variables
@@ -204,7 +215,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. Uses `stringr` functions in a data transformation pipeline
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
 
 12. Use `forcats` functions to work with factor variables
@@ -214,7 +225,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     - NOTE: Though they are base R functions, `factor()` and `levels()` can be used to meet this objective as long as they are used in a way that demonstrates the same skills as `forcats` functions, which should involve including optional arguments
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
 
 ### Data visualization with ggplot2
@@ -225,7 +236,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     2. At least one plot is multi-variable
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
 
 14. Use dynamic aesthetics to group data
@@ -233,7 +244,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
     1. Uses at least 2 unique data-mapped `aes()` arguments (e.g., color, shape, size) to group data in a plot in one or multiple plots
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
         
 15. Use facets to create parallel plots
@@ -245,7 +256,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
       1. If data only includes 1 sensible grouping variable, it may be used for both the faceting and groupin aes.  
 
         -   [X] Objective attempt
-        -   [ ] Objective met
+        -   [x] Objective met
         -   Grader comments:
         
 16. Create publication-quality plots using `theme` and `labs` layers
@@ -257,7 +268,9 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
 
         -   [X] Objective attempt
         -   [ ] Objective met
-        -   Grader comments:
+        -   Grader comments: 
+            1. Some of these plots are very difficult to interpret. I'm particularly confused by "Nurse Turn Event Trends Over Time". In your final manuscript, be sure that you both 1) include apa-note captions to sufficiently guide your reader to understand what they're looking at and 2) include sufficient narrative text to explain the meaning and utility of the figure.
+            2. In some cases (like the plot named above), you may need to consider whether the geom(s) you've chosen are the way you've mapped aesthetics are the best way to organize your plot.
 
 ### Data analysis
 
@@ -292,7 +305,7 @@ Refer to the website for general tips on meeting these objectives and an FAQ.
 
         -   [X] Objective attempt
         -   [ ] Objective met
-        -   Grader comments:
+        -   Grader comments: I don't see any presentation of analysis results
 
 ### BibTeX
 
@@ -459,8 +472,10 @@ Alternatively/additionally in mind some of the suggested ways to earn engagement
 
 All final projects are graded by Dr. Dowling. You will see your grade on Canvas separated into two categories: objective points and engagement points.
 
--   **Objective points:** #/30
--   **Engagement points:** #/10
--   **Total points:** #/40
+-   **Objective points:** 9/30
+-   **Engagement points:** 4/10
+-   **Total points:** 13/40
 
-**Comments:**
+**Comments:** Nice work, Michael -- you're making good progress! The next thing you focus on should be organizing your repository. In particular, the manuscript .qmd should be the only qmd in your whole repo, and the repo should not contain any files not related to the project or necessary to run the project. Currently you have your work split between two qmds, including having plots render in a different qmd than the manuscript, which kind of defeats the purpose. Also, the main qmd does not knit as is; there is too much wrong with the YAML header. I suggest deleting the current YAML header and starting over with a "minimal example" from the apaquarto documentation. Remember that YAML is whitespace sensitive, so be careful about where you put spaces, line breaks, and indentation. Also remember that any empty files may cause your render to quit unexpectedly.
+
+Nice job with the tidyverse functions and ggplot2 plots -- you're doing a good job of incorporating these into your project. Keep up the good work!
