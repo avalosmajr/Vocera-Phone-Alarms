@@ -134,6 +134,8 @@ The project aims to reduce missed turns within the SICU and BICU through alarms 
 For approximately three decades, the Braden Scale has been adopted and served as the primary practice for PI prevention within the United States; nevertheless, PIs remain a concern for hospitals, especially within the intensive care units (ICUs) [@kring2007reliability; @lyder2008pressure; @wei2020predictive]. As technology continues to evolve, it is necessary to utilize even its most simplistic offers, such as alarms, which have shown to be effective in PI prevention. A computer on-screen list, which served as a reminder system, helped the healthcare staff to know the patient’s most recent risk assessment, PI location, and arrival date [@sebastian-viana2016reduction]
 . The reminder system demonstrated its effectiveness through a reduction of PIs developed [@sebastian-viana2016reduction]. Group A, who was not exposed to the intervention in 2009, reported 84 PIs out of the 9,263 patients, while Group B, who were involved in the reminder system, reported that out of the 9,220 patients, only 59 developed PIs [@sebastian-viana2016reduction]. Moreover, technology in PI prevention consists of various interventions like wearable sensors, which have been classified as “cost-effective”, decrease HAPI development, and improve turn compliance; however, the claim can be made that additional efforts should be made before the purchases of LEAF Sensors at $250/sensor [@crotty2023using]. The Vocera phone alarms may aid in reminding nurses to input turn documentation, turn patients every two hours, and improve patient outcomes through a more cost-effective approach. The intervention shows there is no current need to conduct human subject testing to improve the prevention of PIs; instead, it is necessary to equip nurses better to allow for them to provide the most efficient care.
 
+# NEED TO PUT ONE OF THE CITAITONS AT THE BEGINING TO MEET REQS
+
 
 ## Methods (Approximately 1/2 page)
 Data storage: The intervention’s effectiveness is analyzed every week through measurements of patient initials, room number, MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), total miss
@@ -145,8 +147,18 @@ EHR data collection: Data will be extracted from patients before and during the 
 
 
 
-## Expected Results (1-2 sentences)
+## Results
 
+
+# DO THIS SECTION!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+As seen in **Fig. 1**, nurses were less likely to commit a 
+
+
+The study consisted of 100 participants 
 
 
 ## Timeline (1/4 - 1/2 page)
