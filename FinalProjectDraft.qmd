@@ -145,8 +145,12 @@ Crotty, A., Killian, J. M., Miller, A., Chilson, S., & Wright, R. (2023). Using 
 
 
 ```
-
-
+```{r}
+#| label: Read_fake_data
+# Use readr to read in fake data
+fake_data <- read_csv("fake_data.csv")
+fake_data
+```
 
 
 

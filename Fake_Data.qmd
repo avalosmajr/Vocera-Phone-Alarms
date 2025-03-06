@@ -165,13 +165,20 @@ ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event T
   geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
   # geom_bar creates bar char, stat= "identity" uses the values from data set, position = position_dodge helps make sure the bars are not stacked 
   labs(title = "Number of Events Per Nurse", x = "Nurse", y = "Event Count") +
-  scale_fill_manual(values = c("Count Missed Turn" = "darkblue", "Count Repeated Turn" = "darkorange")) + # scale_fill_manual allows for you to place the colors manually 
-  theme_minimal() +
+  scale_fill_manual(values = c("Count Missed Turn" = "darkblue", 
+                               "Count Repeated Turn" = "darkorange")) + # scale_fill_manual allows for you to place the colors manually 
+  theme_minimal(base_family = "Times New Roman") +
     theme(
-      axis.text.x = element_text(angle = 45, hjust = 1, size = 8), # hjust used for overlap prevention for text  
-      plot.title = element_text(size = 20, face = "bold"),      
-      legend.position = "bottom",
-      legend.title = element_blank(),
+      axis.text.x = element_text(angle = 0, hjust = 0.5, size = 14), # hjust used for overlap prevention for text  
+      axis.text.y = element_text(size = 12),
+      axis.title.x = element_text(size = 14, face = "bold"),
+      axis.title.y = element_text(size = 14, face = "bold"),
+      plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+      legend.position = "top",
+      legend.title = element_text(size = 14, face = "bold"),
+      legend.text = element_text(size = 12),
+      panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+      plot.margin = margin(10, 10, 10, 10),
       panel.grid.minor = element_blank()) # panel.grid.minor helps get rid of the grid lines
 
 ```
@@ -202,7 +209,7 @@ ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = 
        x= "Week of Event",
        y= "Number of Events",
        color= "Nurse")+
-  theme_minimal() +
+  theme_minimal(base_family = "Times New Roman") +
   theme(
       axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
       plot.title = element_text(size = 20, face = "bold"),  
@@ -240,25 +247,28 @@ fake_nurse_shift
 ```{r}
 ## NURSE DATA ANALYSIS PLOT PT.3
 ggplot(fake_nurse_shift, aes(x= `Shift_Type`, fill= `Type of Event`)) +
-  geom_bar(position = "stack", width = 0.6, color = "black") +
+  geom_bar(position = "stack", width = 0.7, color = "black") +
   geom_text(stat = "count", aes(label = ..count..), 
-    position = position_stack(vjust = 0.5), size = 5, color = "white") + # geom_text is labels/text/values for bars here, aes(label = ..count..) is just the count for each category, position _stack places the label inside the bars, vjust helping to center text (vertically remember hjust)
+    position = position_stack(vjust = 0.5), size = 6, color = "white") + # geom_text is labels/text/values for bars here, aes(label = ..count..) is just the count for each category, position _stack places the label inside the bars, vjust helping to center text (vertically remember hjust)
   scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
-  labs(title = "Event Occurrence by Shift",
+  labs(title = "Missed and Repeated Turn Occurrence by Shift",
        x = "Shift Type",
        y = "Number of Events",
        fill = "Event Type") +
-  theme_minimal() +
+  theme_minimal(base_family = "Times New Roman") +
   theme(
-plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
-axis.text.x = element_text(size = 12, face = "bold"),
-axis.text.y = element_text(size = 12),
+plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
 axis.title.x = element_text(size = 16, face = "bold"),
 axis.title.y = element_text(size = 16, face = "bold"),
-legend.position = "right",
+legend.position = "top",
 legend.title = element_text(size = 14, face = "bold"),
-legend.text = element_text(size = 12)
-)
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+plot.margin = margin(10, 10, 10, 10),
+panel.grid.minor = element_blank())
+
 
 
 ```
@@ -286,17 +296,19 @@ ggplot(fake_nurse_weekdayend, aes(x = Day_Type, fill = `Type of Event`)) +
        x = "Day Type",
        y = "Number of Events",
        fill = "Event Type") +
-  theme_minimal() +
-  theme(
-  plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
-  axis.text.x = element_text(size = 12, face = "bold"),
-  axis.text.y = element_text(size = 12),
-  axis.title.x = element_text(size = 14, face = "bold"),
-  axis.title.y = element_text(size = 14, face = "bold"),
-  legend.position = "right",
-  legend.title = element_text(size = 12, face = "bold"),
-  legend.text = element_text(size = 10)
-  )
+  theme_minimal(base_family = "Times New Roman") +
+theme(
+plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
+axis.title.x = element_text(size = 16, face = "bold"),
+axis.title.y = element_text(size = 16, face = "bold"),
+legend.position = "top",
+legend.title = element_text(size = 14, face = "bold"),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+plot.margin = margin(10, 10, 10, 10),
+panel.grid.minor = element_blank())
 
 
 ```
@@ -316,23 +328,25 @@ fake_patient_event
 ```{r}
 ## Patient Analysis PLOT pt 1
 ggplot(fake_patient_event, aes(x = Age_Group, fill = `Type of Event`)) +
-  geom_bar(position = "dodge", width = 0.6, color = "black") +
+  geom_bar(position = "dodge", width = 0.8, color = "black") +
   scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
   labs(title = "Event Occurrence by Age Group",
        x = "Age Group",
        y = "Number of Events",
        fill = "Event Type") + 
-  theme_minimal() +
-  theme(
-  plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
-  axis.text.x = element_text(size = 12, face = "bold"),
-  axis.text.y = element_text(size = 12),
-  axis.title.x = element_text(size = 14, face = "bold"),
-  axis.title.y = element_text(size = 14, face = "bold"),
-  legend.position = "right",
-  legend.title = element_text(size = 12, face = "bold"),
-  legend.text = element_text(size = 10)
-  ) 
+  theme_minimal(base_family = "Times New Roman") +
+theme(
+plot.title = element_text(size = 24, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
+axis.title.x = element_text(size = 16, face = "bold"),
+axis.title.y = element_text(size = 16, face = "bold"),
+legend.position = "top",
+legend.title = element_text(size = 14, face = "bold"),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+plot.margin = margin(10, 10, 10, 10),
+panel.grid.minor = element_blank())
 
 
 ```
@@ -341,23 +355,27 @@ ggplot(fake_patient_event, aes(x = Age_Group, fill = `Type of Event`)) +
 ## Patient Analysis Plot pt 2
 ## Event type and lOS
 ggplot(fake_data, aes(x= `Type of Event`, y = `Length of Stay`, fill = `Type of Event`)) +
-  geom_boxplot(outlier.color = "red", outlier.shape = 16, outlier.size = 2) + # outlier. is just outliers 
+  geom_boxplot(width = 0.5, outlier.color = "red", outlier.shape = NA, outlier.size = 1.5) + # outlier. is just outliers 
+  geom_jitter(aes(color = `Type of Event`), width = 0.2, size = 2, alpha = 0.5) +
   scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
   labs(title = "Relationship Between Event Type and Length of Stay",
        x= "Event Type",
        y= "Length of Stay (Days)",
-       fill= "Event Type") +
-  theme_minimal() +
-  theme(
-  plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
-  axis.text.x = element_text(size = 12, face = "bold"),
-  axis.text.y = element_text(size = 12),
-  axis.title.x = element_text(size = 14, face = "bold"),
-  axis.title.y = element_text(size = 14, face = "bold"),
-  legend.position = "none",
-  legend.title = element_text(size = 12, face = "bold"),
-  legend.text = element_text(size = 10)
-  ) 
+       fill= "Event Type",
+       color= "Event Type") +
+  theme_minimal(base_family = "Times New Roman") +
+ theme(
+plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
+axis.title.x = element_text(size = 16, face = "bold"),
+axis.title.y = element_text(size = 16, face = "bold"),
+legend.position = "top",
+legend.title = element_text(size= 14, face = "bold"),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+plot.margin = margin(10, 10, 10, 10),
+panel.grid.minor = element_blank()) 
 
 ```
 
@@ -405,6 +423,105 @@ fake_data %>%
 # Write fake_data to a .csv file 
 getwd()
 write_csv(fake_data, "fake_data.csv")
-fake_data <- read_csv("/Users/michaelavalosjr./Repos for Rstudio/Vocera-Phone-Alarms/fake_data.csv")
+fake_data.csv <- read_csv("/Users/michaelavalosjr./Repos for Rstudio/Vocera-Phone-Alarms/fake_data.csv")
+
+# Check
+fake_data.csv
+```
+
+
+
+
+
+
+```{r}
+# Label Placement 
+# T-test for Braden Scale 
+Braden_t_test <- t.test(`Braden Scale` ~ `Type of Event`, data = fake_data)
+
+# Check
+Braden_t_test
+
+
+# Need Chatgpt Comment 
+```
+
+
+```{r}
+# Label placement 
+nurse_event_table <- table(fake_data$`Type of Event`, fake_data$`Nurse Associated With Event`)
+
+# Chi-sq-test
+chi_sq_test_nurse_event <- chisq.test(nurse_event_table)
+
+# Check
+chi_sq_test_nurse_event
+
+
+# Need Chatgpt Comment 
+```
+
+```{r}
+# Label placement 
+# Table for Descriptive results 
+T_and_chisq_table <- data.frame(
+  Test = c("T-Test (Braden Scale ~ Type of Event", "Chi-Square (Event ~ Nurse Associated)"), 
+  Statistic = c(round(Braden_t_test$statistic, 2), round(chi_sq_test_nurse_event$statistic, 2)),
+  p_value = c(round(Braden_t_test$p.value, 4), round(chi_sq_test_nurse_event$p.value, 2)),
+    df = c(round(Braden_t_test$parameter, 2), chi_sq_test_nurse_event$statistic),
+  Method = c(Braden_t_test$method, chi_sq_test_nurse_event$method)
+)
+
+kable(T_and_chisq_table,
+      caption = "Hypothesis Test Results: T-Test and Chi-Square",
+      col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"))
+
 
 ```
+
+
+
+
+
+```{r}
+# Facet Wrap 
+ggplot(fake_data, aes(x = `Nurse`, y = `Length of Stay`, fill = `Type of Event`)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~ `Type of Event`, ncol = 1, scales = "free_y") + 
+  labs(title = "Length of Stay by Nurse and Event Type",
+       x = "Nurse", y = "Length of Stay") +
+  theme_minimal(base_family = "Times New Roman") +
+  theme(
+plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 12, hjust = 1, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
+axis.title.x = element_text(size = 14, face = "bold"),
+axis.title.y = element_text(size = 14, face = "bold"),
+legend.position = "bottom",
+legend.title = element_text(size= 12, face = "bold"),
+legend.text = element_text(size = 11),
+strip.text = element_text(size = 14, face = "bold"),
+panel.grid.minor = element_blank(),
+panel.spacing = unit(1, "lines")) 
+
+
+```
+
+
+
+
+```{r}
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
