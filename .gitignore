@@ -48,8 +48,11 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Adding this file to .ignore incase I need it for later and so repo is cleaner
+# Adding this file to .ignore incase I need it for later and so repo is cleaner (Pt.1)
 example.qmd
 
-# Adding this file to .ignore incase I need it for later and so repo is cleaner
+# Adding this file to .ignore incase I need it for later and so repo is cleaner (Pt. 2)
 sampleimage.png
+
+# Adding this file to .ignore incase I need it for later and so repo is cleaner (Pt. 2)
+Temp.qmd
