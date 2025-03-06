@@ -41,7 +41,7 @@ author-note:
     gratitude: ~
     authorship-agreements: ~
 abstract: "This document is a template demonstrating the apaquarto format."
-keywords: [keyword1, keyword2, keyword3]
+keywords: [Hospital-acquired pressure injury, Incidence, Intensive care units, Pressure injury, Prevention, Quality Improvement]
 # If true, tables and figures are mingled with the text instead of listed at the end of the document.
 impact-statement: ~
 floatsintext: true
@@ -171,6 +171,18 @@ Crotty, A., Killian, J. M., Miller, A., Chilson, S., & Wright, R. (2023). Using 
 
 
 ```
+
+
+
+::: {#refs}
+:::
+
+
+
+
+
+
+
 ```{r}
 #| label: Read_fake_data
 # Use readr to read in fake data
