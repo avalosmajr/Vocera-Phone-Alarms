@@ -117,20 +117,17 @@ papaja::r_refs(file = "r-references.bib")
 ```
 
 
-```
-Format note: Independent Project Rough Draft should be 3-4 double-spaced pages, excluding the attached bibliography.
-```
+
+## Format note: Independent Project Rough Draft should be 3-4 double-spaced pages, excluding the attached bibliography.
 
 
-```
+
+
 ## Introduction (approximately ½ page)
-
-
 
 
 ## Research Question (1-2 sentences)
 The project aims to reduce missed turns within the SICU and BICU through alarms on the nurse's Vocera phones, reminding them to turn their patient(s) every two hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the EHR.  
-
 
 
 ## Literature Review (Approximately 1 page)
@@ -159,19 +156,11 @@ EHR data collection: Data will be extracted from patients before and during the 
 
 
 
-
-## References 
-Kring D. L. (2007). Reliability and validity of the Braden Scale for predicting pressure ulcer risk. Journal of wound, ostomy, and continence nursing : official publication of The Wound, Ostomy and Continence Nurses Society, 34(4), 399–406. https://doi.org/10.1097/01.WON.0000281656.86320.74
-Lyder CH, Ayello EA. Pressure Ulcers: A Patient Safety Issue. In: Hughes RG, editor. Patient Safety and Quality: An Evidence-Based Handbook for Nurses. Rockville (MD): Agency for Healthcare Research and Quality (US); 2008 Apr. Chapter 12. Available from: https://www.ncbi.nlm.nih.gov/books/NBK2650/
-Wei, M., Wu, L., Chen, Y., Fu, Q., Chen, W., & Yang, D. (2020). Predictive Validity of the Braden Scale for Pressure Ulcer Risk in Critical Care: A Meta-Analysis. Nursing in critical care, 25(3), 165–170. https://doi.org/10.1111/nicc.12500
-4) Sebastián-Viana, T., Losa-Iglesias, M., González-Ruiz, J. M., Lema-Lorenzo, I., Núñez-Crespo, F. J., Salvadores Fuentes, P., & ARCE team (2016). Reduction in the incidence of pressure ulcers upon implementation of a reminder system for health-care providers. Applied nursing research : ANR, 29, 107–112. https://doi.org/10.1016/j.apnr.2015.05.018
-Crotty, A., Killian, J. M., Miller, A., Chilson, S., & Wright, R. (2023). Using wearable technology to prevent pressure injuries: An integrative review. Worldviews on evidence-based nursing, 20(4), 351–360. https://doi.org/10.1111/wvn.12638
-
+## References
 
 
 ::: {#refs}
 :::
-
 
 
 
@@ -184,19 +173,5 @@ Crotty, A., Killian, J. M., Miller, A., Chilson, S., & Wright, R. (2023). Using 
 fake_data <- read_csv("fake_data.csv")
 fake_data
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
