@@ -125,14 +125,14 @@ papaja::r_refs(file = "r-references.bib")
 
 ## Introduction (approximately ½ page)
 
-
-## Research Question (1-2 sentences)
-The project aims to reduce missed turns within the SICU and BICU through alarms on the nurse's Vocera phones, reminding them to turn their patient(s) every two hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the EHR.  
+  The project aims to reduce missed turns within the SICU and BICU through alarms on the nurse's Vocera phones, reminding them to turn their patient(s) every two hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the EHR.  
 
 
-## Literature Review (Approximately 1 page)
-For approximately three decades, the Braden Scale has been adopted and served as the primary practice for PI prevention within the United States; nevertheless, PIs remain a concern for hospitals, especially within the intensive care units (ICUs) [@kring2007reliability; @lyder2008pressure; @wei2020predictive]. As technology continues to evolve, it is necessary to utilize even its most simplistic offers, such as alarms, which have shown to be effective in PI prevention. A computer on-screen list, which served as a reminder system, helped the healthcare staff to know the patient’s most recent risk assessment, PI location, and arrival date [@sebastian-viana2016reduction]
-. The reminder system demonstrated its effectiveness through a reduction of PIs developed [@sebastian-viana2016reduction]. Group A, who was not exposed to the intervention in 2009, reported 84 PIs out of the 9,263 patients, while Group B, who were involved in the reminder system, reported that out of the 9,220 patients, only 59 developed PIs [@sebastian-viana2016reduction]. Moreover, technology in PI prevention consists of various interventions like wearable sensors, which have been classified as “cost-effective”, decrease HAPI development, and improve turn compliance; however, the claim can be made that additional efforts should be made before the purchases of LEAF Sensors at $250/sensor [@crotty2023using]. The Vocera phone alarms may aid in reminding nurses to input turn documentation, turn patients every two hours, and improve patient outcomes through a more cost-effective approach. The intervention shows there is no current need to conduct human subject testing to improve the prevention of PIs; instead, it is necessary to equip nurses better to allow for them to provide the most efficient care.
+## Research Question
+  How effective are the Vocera phone alarms in reminding SICU and BICU nurses to reposition patients and document turns in efforts to prevent hospital-acquired pressure injuries?  
+
+## Literature Review (Approximately 1 page) NEED LIKE 2 MORE SENTENCES 
+  For approximately three decades, the Braden Scale has been adopted and served as the primary practice for PI prevention within the United States; nevertheless, PIs remain a concern for hospitals, especially within the intensive care units (ICUs) [@kring2007reliability; @lyder2008pressure; @wei2020predictive]. As technology continues to evolve, it is necessary to utilize even its most simplistic offers, such as alarms, which have shown to be effective in PI prevention. A computer on-screen list, which served as a reminder system, helped the healthcare staff to know the patient’s most recent risk assessment, PI location, and arrival date [@sebastian-viana2016reduction]. The reminder system demonstrated its effectiveness through a reduction of PIs developed [@sebastian-viana2016reduction]. Group A, who was not exposed to the intervention in 2009, reported 84 PIs out of the 9,263 patients, while Group B, who were involved in the reminder system, reported that out of the 9,220 patients, only 59 developed PIs [@sebastian-viana2016reduction]. Moreover, technology in PI prevention consists of various interventions like wearable sensors, which have been classified as “cost-effective”, decrease HAPI development, and improve turn compliance; however, the claim can be made that additional efforts should be made before the purchases of LEAF Sensors at $250/sensor [@crotty2023using]. The Vocera phone alarms may aid in reminding nurses to input turn documentation, turn patients every two hours, and improve patient outcomes through a more cost-effective approach. The intervention shows there is no current need to conduct human subject testing to improve the prevention of PIs; instead, it is necessary to equip nurses better to allow for them to provide the most efficient care.
 
 # NEED TO PUT ONE OF THE CITAITONS AT THE BEGINING TO MEET REQS
 
@@ -141,6 +141,16 @@ For approximately three decades, the Braden Scale has been adopted and served as
 Data storage: The intervention’s effectiveness is analyzed every week through measurements of patient initials, room number, MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), total miss
 
 EHR data collection: Data will be extracted from patients before and during the intervention (7/1/2024 to 5/1/2025). Patients prior to the implementation will undergo the same weekly form measurements as mentioned above; additional variables such as race, gender, age, weight, diseases, and history of PIs will be recorded for both pre-intervention and intervention patients to help illustrate potential unforeseen correlations to missed turns. Information collected from the EHR for patients includes MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), turn documentation, race, gender, age, weight, diseases, and history of PIs. Information collected from the EHR for nurses includes name, shift, experience, and turn documentation. 
+
+
+
+
+
+
+
+
+
+
 
 ## Project Deliverables (Approximately 1/2 page)
 
