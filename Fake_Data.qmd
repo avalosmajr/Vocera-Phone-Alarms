@@ -269,8 +269,10 @@ panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.
 plot.margin = margin(10, 10, 10, 10),
 panel.grid.minor = element_blank())
 
+fake_nurse_shift %>%
+  count(`Type of Event`, sort = TRUE) 
 
-
+fake_nurse_shift
 ```
 
 ```{r}
@@ -511,7 +513,7 @@ panel.spacing = unit(1, "lines"))
 
 
 ```{r}
-
+fake_nurse_shift
 
 
 
