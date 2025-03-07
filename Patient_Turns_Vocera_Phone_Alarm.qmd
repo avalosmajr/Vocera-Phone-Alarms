@@ -211,6 +211,8 @@ The intervention has not been proposed to the Alarms Committee at UCM because th
 
 
 ```{r}
+#| label: Creation of Fake Data 
+#| include: false
 fake_data <- tibble(
   Patient_ID = 1:100,
   Age = sample(20:90, 100, replace = TRUE),
@@ -229,6 +231,7 @@ fake_data
 ```
 
 ```{r}
+#| label:
 # Rename and Reorder Columns 
 fake_data <- fake_data %>%
   select("Patient ID" = "Patient_ID", "Age", "Braden Scale" = "Braden_Scale", "Length of Stay" =  "Length_of_Stay","Type of Event" = "Type_of_Event", "Week of Event" = "Week_of_Event", "Time of Event" = "Time_of_Event", "Date of Event" = "Date_of_Event", "Nurse", "Nurse Associated With Event" = "Nurse_Associated_With_Event")
@@ -238,6 +241,7 @@ fake_data
 ```
 
 ```{r}
+#| label:
 ## Descriptive stats pt. 1
 fake_data %>%
   summarize(
@@ -266,6 +270,7 @@ fake_data %>%
 ```
 
 ```{r}
+#| label:
 ## NURSE DATA ANALYSIS PT.1
 ## 1. How many events were associated with a nurse  
 fake_nurse_event_data <- fake_data # Moving original set into new one (fake_nurse_event_data) 
@@ -341,6 +346,7 @@ fake_data
 ```
 
 ```{r}
+#| label:
 ## NURSE DATA ANALYSIS PLOTS pt. 1
 
 # Convert the data back to long
@@ -375,6 +381,7 @@ ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event T
 ```
 
 ```{r}
+#| label:
 ## NURSE DATA ANALYSIS PT.2
 ## Check how nurses do overtime 
 fake_nurse_event_time_date <- fake_data
@@ -389,6 +396,7 @@ fake_nurse_event_time_date
 ```
 
 ```{r}
+#| label:
 ## NURSE DATA ANALYSIS PLOTS pt. 2
 ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = `Nurse`, group = interaction(`Nurse`, `Type of Event`))) +
   geom_line(size = 1) + # geom_line is line graph
@@ -415,6 +423,7 @@ ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = 
 ```
 
 ```{r}
+#| label:
 ## NURSE DATA ANALYSIS PT.3
 fake_nurse_shift <- fake_data %>%
 mutate(`Nurse` = as.factor(`Nurse`),
@@ -468,6 +477,7 @@ fake_nurse_shift
 ```
 
 ```{r}
+#| label:
 ## NURSE DATA ANALYSIS PT.4
 fake_nurse_weekdayend <- fake_data
 fake_nurse_weekdayend <- fake_nurse_weekdayend  %>%
@@ -482,6 +492,7 @@ fake_nurse_weekdayend
 ```
 
 ```{r}
+#| label:
 ## NURSE DATA ANALYSIS PLOT PT.4
 ggplot(fake_nurse_weekdayend, aes(x = Day_Type, fill = `Type of Event`)) +
   geom_bar(position = "dodge", width = 0.6, color = "black") +
@@ -508,6 +519,7 @@ panel.grid.minor = element_blank())
 ```
 
 ```{r}
+#| label:
 ## Patient Analysis pt 1
 fake_patient_event <- fake_data
 fake_patient_event <- fake_patient_event %>%
@@ -520,6 +532,7 @@ fake_patient_event
 ```
 
 ```{r}
+#| label:
 ## Patient Analysis PLOT pt 1
 ggplot(fake_patient_event, aes(x = Age_Group, fill = `Type of Event`)) +
   geom_bar(position = "dodge", width = 0.8, color = "black") +
@@ -546,6 +559,7 @@ panel.grid.minor = element_blank())
 ```
 
 ```{r}
+#| label:
 ## Patient Analysis Plot pt 2
 ## Event type and lOS
 ggplot(fake_data, aes(x= `Type of Event`, y = `Length of Stay`, fill = `Type of Event`)) +
@@ -574,6 +588,7 @@ panel.grid.minor = element_blank())
 ```
 
 ```{r}
+#| label:
 # T test for Los and Type of event
 result_t_test <- t.test(`Length of Stay` ~ `Type of Event`, data = fake_data)
 
@@ -583,6 +598,7 @@ result_t_test
 ```
 
 ```{r}
+#| label:
 ## Patient Stay
 fake_data <- fake_data %>%
   mutate(
@@ -606,6 +622,7 @@ fake_data
 ```
 
 ```{r}
+#| label:
 # Analyze the data for Event(s)
 #Type of Events
 fake_data %>%
@@ -614,6 +631,7 @@ fake_data %>%
 ```
 
 ```{r}
+#| label:
 # Write fake_data to a .csv file 
 getwd()
 write_csv(fake_data, "fake_data.csv")
@@ -629,6 +647,7 @@ fake_data.csv
 
 
 ```{r}
+#| label:
 # Label Placement 
 # T-test for Braden Scale 
 Braden_t_test <- t.test(`Braden Scale` ~ `Type of Event`, data = fake_data)
@@ -642,6 +661,7 @@ Braden_t_test
 
 
 ```{r}
+#| label:
 # Label placement 
 nurse_event_table <- table(fake_data$`Type of Event`, fake_data$`Nurse Associated With Event`)
 
@@ -656,6 +676,7 @@ chi_sq_test_nurse_event
 ```
 
 ```{r}
+#| label:
 # Label placement 
 # Table for Descriptive results 
 T_and_chisq_table <- data.frame(
@@ -678,6 +699,7 @@ kable(T_and_chisq_table,
 
 
 ```{r}
+#| label:
 # Facet Wrap 
 ggplot(fake_data, aes(x = `Nurse`, y = `Length of Stay`, fill = `Type of Event`)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -705,6 +727,7 @@ panel.spacing = unit(1, "lines"))
 
 
 ```{r}
+#| label:
 fake_nurse_shift
 
 
