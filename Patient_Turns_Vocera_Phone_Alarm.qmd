@@ -119,7 +119,7 @@ papaja::r_refs(file = "r-references.bib")
 
 ## Format note: Independent Project Rough Draft should be 3-4 double-spaced pages, excluding the attached bibliography.
 
-## Introduction (approximately ½ page)
+## Introduction
   Nurses within intensive care units (ICUs) carry a significant responsibility of ensuring their patient(s) do not develop a hospital-acquired pressure injury (HAPI). Fortunately, current PI prevention approaches do not solely rely on personal knowledge and decision-making but instead guide through skin and risk assessments (e.g., Braden Scale) and repositioning. However, nurses are confronted with countless variables that may affect their performance, including but not limited to heavy workloads, fast-paced environments, and long hours. Collectively, this leads to inadvertent missed turns and documentation, increasing the patient's risk for a HAPI. Therefore, there is a current need to equip nurses better to allow for them to provide the care that they are capable of. The current project aims to reduce missed turns and increase turn documentation within the SICU and BICU through alarms on the nurse's Vocera phones. Characteristics of the intervention includes the alarm being low-priorty, alerting every two hours (totaling six times per shift) and allowing the nurse to choose their own alarm, have the ability to use the snooze feature to si. The primary requirement is that nurses put the alarm into their Vocera phone, which needs to be set at even hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the electronic health records (EHR). This study will help determine whether electronic devices can contribute to a nurse’s provided care and possibly address unforeseen correlations regarding patients and healthcare workers.  
 
 ## Research Question
@@ -130,20 +130,12 @@ papaja::r_refs(file = "r-references.bib")
 
 # NEED TO PUT ONE OF THE CITAITONS AT THE BEGINING TO MEET REQS
 
+## Methods 
+*Data storage*
+Weekly audits are performed through chart review and documented on paper. Data collected through audit includes patient initials, room number, MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), total missed turns, and percentage of turn success for that patients that week. The weekly audit papers remain with Marianne Banas, RN, and Peggy Zemansky, RN, BSN. For this comparison, the data will be transferred from paper and stored within REDCap to ensure the protection of sensitive information. Furthermore, it should be noted that identifiers will be removed. Access to the weekly audit forms includes Michael Avalos Jr., Marianne Banas, RN, and Peggy Zemansky, RN, BSN, CCRN. Access to REDCap will include Michael Avalos Jr. as the primary project owner but may include Marianne Banas, RN, and Peggy Zemansky, RN, BSN, upon request. 
 
-## Methods (Approximately 1/2 page)
-Data storage: The intervention’s effectiveness is analyzed every week through measurements of patient initials, room number, MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), total miss
-
-EHR data collection: Data will be extracted from patients before and during the intervention (7/1/2024 to 5/1/2025). Patients prior to the implementation will undergo the same weekly form measurements as mentioned above; additional variables such as race, gender, age, weight, diseases, and history of PIs will be recorded for both pre-intervention and intervention patients to help illustrate potential unforeseen correlations to missed turns. Information collected from the EHR for patients includes MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), turn documentation, race, gender, age, weight, diseases, and history of PIs. Information collected from the EHR for nurses includes name, shift, experience, and turn documentation. 
-
-
-
-
-
-
-
-
-
+*EHR data collection*
+Data will be extracted from patients before and after the nursing reminders were implemented (7/1/2024 to 5/1/2025). Patients prior to the implementation will undergo the same weekly form measurements as mentioned above; additional variables such as race, gender, age, weight, diseases, and history of pressure injury will be recorded. Information collected from the EHR for patients includes MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), turn documentation, race, gender, age, weight, diseases, and history of pressure injury. Information collected from the EHR for nurses includes name, shift, experience, and turn documentation. 
 
 
 ## Project Deliverables (Approximately 1/2 page)
@@ -151,10 +143,23 @@ EHR data collection: Data will be extracted from patients before and during the 
 
 
 
+
+
+
+
+
+
+
+
+
 ## Results
 
 
-# DO THIS SECTION!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
 
 
 
@@ -166,7 +171,26 @@ The study consisted of 100 participants
 
 
 ## Timeline (1/4 - 1/2 page)
+The timeline displayed below illustrates the plans going forward. 
 
+**Stage One: Quality Improvement Form**
+- Resubmit quality improvement form by 03/22/25. 
+
+**Stage Two: Surverys**
+- Send out surveys to nursing staff by 04/15/25. 
+
+**Stage Three: Data Storage**
+- Place all audit data in REDCap by 04/15/25. 
+- Place all non-intervention data in REDCap by 4/30/25.
+
+**Stage Four: Observations**
+- Observe the intervention in-person (~ 5-10 days) by 05/05/25.
+
+**Stage Five: Analysis**
+- Analysis completed by 5/20/25.
+
+**Stage Six: Final Write-up**
+- Have Final write-up completed by 5/20/25
 
 
 ## Conclusion (Approximately 1/4 page)
