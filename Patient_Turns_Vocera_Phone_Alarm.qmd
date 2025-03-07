@@ -131,10 +131,10 @@ papaja::r_refs(file = "r-references.bib")
 # NEED TO PUT ONE OF THE CITAITONS AT THE BEGINING TO MEET REQS
 
 ## Methods 
-*Data storage*
+### *Data storage*
 Weekly audits are performed through chart review and documented on paper. Data collected through audit includes patient initials, room number, MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), total missed turns, and percentage of turn success for that patients that week. The weekly audit papers remain with Marianne Banas, RN, and Peggy Zemansky, RN, BSN. For this comparison, the data will be transferred from paper and stored within REDCap to ensure the protection of sensitive information. Furthermore, it should be noted that identifiers will be removed. Access to the weekly audit forms includes Michael Avalos Jr., Marianne Banas, RN, and Peggy Zemansky, RN, BSN, CCRN. Access to REDCap will include Michael Avalos Jr. as the primary project owner but may include Marianne Banas, RN, and Peggy Zemansky, RN, BSN, upon request. 
 
-*EHR data collection*
+### *EHR data collection*
 Data will be extracted from patients before and after the nursing reminders were implemented (7/1/2024 to 5/1/2025). Patients prior to the implementation will undergo the same weekly form measurements as mentioned above; additional variables such as race, gender, age, weight, diseases, and history of pressure injury will be recorded. Information collected from the EHR for patients includes MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), turn documentation, race, gender, age, weight, diseases, and history of pressure injury. Information collected from the EHR for nurses includes name, shift, experience, and turn documentation. 
 
 
@@ -142,61 +142,32 @@ Data will be extracted from patients before and after the nursing reminders were
 
 
 
-
-
-
-
-
-
-
-
-
-
 ## Results
 
-
-
-
-
-
-
-
-
-
-
-As seen in **Fig. 1**, nurses were less likely to commit a 
-
-
-The study consisted of 100 participants 
-
-
-## Timeline (1/4 - 1/2 page)
+## Timeline
 The timeline displayed below illustrates the plans going forward. 
 
-**Stage One: Quality Improvement Form**
-- Resubmit quality improvement form by 03/22/25. 
+### **Stage One: Quality Improvement Form** 
+- Resubmit quality improvement form by **03/22/25**. 
 
-**Stage Two: Surverys**
-- Send out surveys to nursing staff by 04/15/25. 
+### **Stage Two: Surverys**
+  - Send out surveys to nursing staff by **04/15/25**. 
 
-**Stage Three: Data Storage**
-- Place all audit data in REDCap by 04/15/25. 
-- Place all non-intervention data in REDCap by 4/30/25.
+### **Stage Three: Data Storage**
+  - Place all audit data in REDCap by **04/15/25**. 
+  - Place all non-intervention data in REDCap by **4/30/25**.
+  
+### **Stage Four: Observations**
+- Observe the intervention in-person (~ 5-10 days) by **05/05/25**.
 
-**Stage Four: Observations**
-- Observe the intervention in-person (~ 5-10 days) by 05/05/25.
+### **Stage Five: Analysis** 
+- Analysis completed by **5/20/25**.
 
-**Stage Five: Analysis**
-- Analysis completed by 5/20/25.
-
-**Stage Six: Final Write-up**
-- Have Final write-up completed by 5/20/25
+### **Stage Six: Final Write-up**
+- Have Final write-up completed by **5/20/25**
 
 
 ## Conclusion (Approximately 1/4 page)
-
-
-  
  While nurses provide appropriate care, the continuous mental and physical demands allow for an increase in unintentional human error (e.g., missed documentation and turns), reducing efficiency. Therefore, this demonstrates the need to understand the extent to which existing cost-effective tools, such as the Vocera phone alarms, may help improve patient outcomes and nursing performance. Additionally, the project will review the patient’s demographics and health status to understand whether further variables are affecting outcomes
 
 
