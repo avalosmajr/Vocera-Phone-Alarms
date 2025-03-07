@@ -117,16 +117,10 @@ papaja::r_refs(file = "r-references.bib")
 ```
 
 
-
 ## Format note: Independent Project Rough Draft should be 3-4 double-spaced pages, excluding the attached bibliography.
 
-
-
-
 ## Introduction (approximately ½ page)
-
-  The project aims to reduce missed turns within the SICU and BICU through alarms on the nurse's Vocera phones, reminding them to turn their patient(s) every two hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the EHR.  
-
+  Nurses within intensive care units (ICUs) carry a significant responsibility of ensuring their patient(s) do not develop a hospital-acquired pressure injury (HAPI). Fortunately, current PI prevention approaches do not solely rely on personal knowledge and decision-making but instead guide through skin and risk assessments (e.g., Braden Scale) and repositioning. However, nurses are confronted with countless variables that may affect their performance, including but not limited to heavy workloads, fast-paced environments, and long hours. Collectively, this leads to inadvertent missed turns and documentation, increasing the patient's risk for a HAPI. Therefore, there is a current need to equip nurses better to allow for them to provide the care that they are capable of. The current project aims to reduce missed turns and increase turn documentation within the SICU and BICU through alarms on the nurse's Vocera phones. Characteristics of the intervention includes the alarm being low-priorty, alerting every two hours (totaling six times per shift) and allowing the nurse to choose their own alarm, have the ability to use the snooze feature to si. The primary requirement is that nurses put the alarm into their Vocera phone, which needs to be set at even hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the electronic health records (EHR). This study will help determine whether electronic devices can contribute to a nurse’s provided care and possibly address unforeseen correlations regarding patients and healthcare workers.  
 
 ## Research Question
   How effective are the Vocera phone alarms in reminding SICU and BICU nurses to reposition patients and document turns in efforts to prevent hospital-acquired pressure injuries?  
@@ -176,6 +170,38 @@ The study consisted of 100 participants
 
 
 ## Conclusion (Approximately 1/4 page)
+
+
+  
+ While nurses provide appropriate care, the continuous mental and physical demands allow for an increase in unintentional human error (e.g., missed documentation and turns), reducing efficiency. Therefore, this demonstrates the need to understand the extent to which existing cost-effective tools, such as the Vocera phone alarms, may help improve patient outcomes and nursing performance. Additionally, the project will review the patient’s demographics and health status to understand whether further variables are affecting outcomes
+
+
+The project aims to reduce missed turns within the SICU and BICU through alarms on the nurse's Vocera phones, reminding them to turn their patient(s) every two hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the EHR.  
+
+
+
+Nurses are responsible for ensuring a patient does not develop a pressure injury (PI), which is currently achieved through skin and risk assessments (e.g., Braden Scale) and repositioning. Furthermore, nurses are confronted with countless variables that may affect their performance, including but not limited to heavy workloads, fast-paced environments, and long hours. Collectively, this leads to inadvertent missed documentation and turns, increasing the patient's risk for a PI. 
+
+
+
+The intervention has not been proposed to the Alarms Committee at UCM because the alarm itself is not automatic; for instance, alarms that go from the monitor to the staff phone are set alarms. The current intervention may allow the RN to pick their own alarm but requires them to put it into their Vocera phone, which will be set at even hours, alert every two hours, and occur six times per shift. It should be noted that it is not a high-priority alarm, and one may use the snooze feature to si. A decision was made regarding alarm fatigue, which is not classified as a concern here based on the intervention’s collective characteristics of reminding the RN through a phone every two hours (six times per shift), ability to use the snooze feature to si, and not being a high-priority alarm. The current state of the Vocera phone alarms has overwhelmingly increased turn documentation within the SICU and BICU (e.g., 45-50% to 97-98% and no new sacral HAPIs). Nonetheless, questions may arise regarding its effectiveness in the future, such as whether it can become “another alarm,” is reasonable. However, the alarm does carry uniqueness in comparison to others. The alarm obtains a specific known purpose (e.g., turn patient and documentation) and can not be classified or associated as a false alarm. Instead, it is one that alerts at a known set time correlated to a required action. While preventative measures have been implemented and shown to be effective, it is essential not to allow healthcare workers to fall below what is expected of them, regardless of the factors at play. Therefore, the rise in technology use calls for the attempt to dictate whether alarms on Vocera phones may improve missed patient turns, helping to combat the undesired variables nurses face. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
