@@ -143,7 +143,9 @@ Data will be extracted from patients before and after the nursing reminders were
 
 
 ## Results
-  The most committed type of event was (add either missed or repeated) ---- talking about committing total amount of missed or repeated; however, across all nurses one was less likely to commit a repeated or missed (for example 6 did not commit a certain type). Interesting, the number of events commited by each nurse was relatively similar excepted for nurse( -------). the nurses that commited the most events were associated with this type of event -----. however the maxium type of event comitted for each nurse was typically --------.  
+  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in **Figure @fig-fig1**. The day and night shift was investigated, which showed consistency amongst both shifts with missed turn being the most common; however, the day shift was associated with 16 more total events than the night shift (**Figure @fig-fig1**)  furthermore, it was observed that the day 
+  
+  ---- talking about committing total amount of missed or repeated; however, across all nurses one was less likely to commit a repeated or missed (for example 6 did not commit a certain type). Interesting, the number of events commited by each nurse was relatively similar excepted for nurse ( -------). the nurses that commited the most events were associated with this type of event -----. however the maxium type of event comitted for each nurse was typically --------.  
   
   
 The study wanted to investigate whether the type of shift affected either the number and/or type of events commited. it was shown that the day shift committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
@@ -188,7 +190,7 @@ The timeline displayed below illustrates the plans going forward.
 
 
 ## Conclusion (Approximately 1/4 page)
- While nurses provide appropriate care, the continuous mental and physical demands allow for an increase in unintentional human error (e.g., missed documentation and turns), reducing efficiency. Therefore, this demonstrates the need to understand the extent to which existing cost-effective tools, such as the Vocera phone alarms, may help improve patient outcomes and nursing performance. Additionally, the project will review the patient’s demographics and health status to understand whether further variables are affecting outcomes
+While nurses provide appropriate care, the continuous mental and physical demands allow for an increase in unintentional human error (e.g., missed documentation and turns), reducing efficiency. Therefore, this demonstrates the need to understand the extent to which existing cost-effective tools, such as the Vocera phone alarms, may help improve patient outcomes and nursing performance. Additionally, the project will review the patient’s demographics and health status to understand whether further variables are affecting outcomes
 
 
 The project aims to reduce missed turns within the SICU and BICU through alarms on the nurse's Vocera phones, reminding them to turn their patient(s) every two hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the EHR.  
@@ -236,6 +238,50 @@ The intervention has not been proposed to the Alarms Committee at UCM because th
 # Use readr to read in fake data
 fake_data <- read_csv("fake_data.csv")
 fake_data
+
 ```
+
+
+
+
+
+
+```{r fig1, fig.width=8, fig.height=6, fig.cap="Amount of Events Based on Nursing Shift"}
+ggplot(fake_nurse_shift.csv, aes(x= `Shift_Type`, fill= `Type of Event`)) +
+  geom_bar(position = "stack", width = 0.7, color = "black") +
+  geom_text(stat = "count", aes(label = ..count..), 
+    position = position_stack(vjust = 0.5), size = 6, color = "white") + # geom_text is labels/text/values for bars here, aes(label = ..count..) is just the count for each category, position _stack places the label inside the bars, vjust helping to center text (vertically remember hjust)
+  scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
+  labs(title = "Missed and Repeated Turn Occurrence by Shift",
+       x = "Shift Type",
+       y = "Number of Events",
+       fill = "Event Type") +
+  theme_minimal(base_family = "Times New Roman") +
+  theme(
+plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
+axis.title.x = element_text(size = 16, face = "bold"),
+axis.title.y = element_text(size = 16, face = "bold"),
+legend.position = "top",
+legend.title = element_text(size = 14, face = "bold"),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+plot.margin = margin(10, 10, 10, 10),
+panel.grid.minor = element_blank())
+
+fake_nurse_shift %>%
+  count(`Type of Event`, sort = TRUE) 
+
+```
+
+
+
+
+
+
+
+
+
 
 
