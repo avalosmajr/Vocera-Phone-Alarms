@@ -139,10 +139,30 @@ Data will be extracted from patients before and after the nursing reminders were
 
 
 ## Project Deliverables (Approximately 1/2 page)
-
+ 
 
 
 ## Results
+  The most committed type of event was (add either missed or repeated) ---- talking about committing total amount of missed or repeated; however, across all nurses one was less likely to commit a repeated or missed (for example 6 did not commit a certain type). Interesting, the number of events commited by each nurse was relatively similar excepted for nurse( -------). the nurses that commited the most events were associated with this type of event -----. however the maxium type of event comitted for each nurse was typically --------.  
+  
+  
+The study wanted to investigate whether the type of shift affected either the number and/or type of events commited. it was shown that the day shift committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
+
+
+The study wanted to investigate whether events primarily occurred either on weekdays aor weekends (----- check if there is a diff for the type may need to make it). it was shown that the -----  committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
+
+
+
+
+The study wanted to investigate what was the most common type of event for each age, which show (----- check it for braden scale ). it was shown that the -----  committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
+
+
+
+
+
+
+
+
 
 ## Timeline
 The timeline displayed below illustrates the plans going forward. 
