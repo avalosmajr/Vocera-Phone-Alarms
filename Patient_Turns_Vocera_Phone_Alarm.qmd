@@ -143,7 +143,7 @@ Data will be extracted from patients before and after the nursing reminders were
 
 
 ## Results
-  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in **Figure @fig-fig1**. The day and night shift was investigated, which showed consistency amongst both shifts with missed turn being the most common; however, the day shift was associated with 16 more total events than the night shift (**Figure @fig-fig1**)  furthermore, it was observed that the day 
+  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. The day and night shift was investigated, which showed consistency amongst both shifts with missed turn being the most common; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event; furthermore, it was observed that the day 
   
   ---- talking about committing total amount of missed or repeated; however, across all nurses one was less likely to commit a repeated or missed (for example 6 did not commit a certain type). Interesting, the number of events commited by each nurse was relatively similar excepted for nurse ( -------). the nurses that commited the most events were associated with this type of event -----. however the maxium type of event comitted for each nurse was typically --------.  
   
@@ -239,6 +239,15 @@ The intervention has not been proposed to the Alarms Committee at UCM because th
 fake_data <- read_csv("fake_data.csv")
 fake_data
 
+# Write fake_nurse_shift to a .csv file 
+getwd()
+fake_nurse_shift <- read_csv( "/Users/michaelavalosjr./Repos for Rstudio/Vocera-Phone-Alarms/fake_data.csv")
+write_csv(fake_nurse_shift, "fake_nurse_shift.csv")
+# Check
+fake_nurse_shift
+
+
+
 ```
 
 
@@ -246,8 +255,11 @@ fake_data
 
 
 
-```{r fig1, fig.width=8, fig.height=6, fig.cap="Amount of Events Based on Nursing Shift"}
-ggplot(fake_nurse_shift.csv, aes(x= `Shift_Type`, fill= `Type of Event`)) +
+
+```{r} 
+#| label: fig-Nurse_Shift_Event
+#| fig-cap: "This is the first plot"
+ggplot(fake_nurse_shift, aes(x= Shift_Type, fill= `Type of Event`)) +
   geom_bar(position = "stack", width = 0.7, color = "black") +
   geom_text(stat = "count", aes(label = ..count..), 
     position = position_stack(vjust = 0.5), size = 6, color = "white") + # geom_text is labels/text/values for bars here, aes(label = ..count..) is just the count for each category, position _stack places the label inside the bars, vjust helping to center text (vertically remember hjust)
@@ -273,6 +285,7 @@ panel.grid.minor = element_blank())
 fake_nurse_shift %>%
   count(`Type of Event`, sort = TRUE) 
 
+fake_nurse_shift
 ```
 
 
