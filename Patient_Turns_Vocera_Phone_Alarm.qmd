@@ -759,9 +759,8 @@ fake_data.csv
 ```
 
 
-
 ```{r}
-#| label: T-test Braden Score, Missed and Repeated Turn
+#| label: T-test Braden Score and Types of Events
 Braden_t_test <- t.test(`Braden Scale` ~ `Type of Event`, data = fake_data)
 # Means for two groups is compared to dictate whether the diff is stat sig (t-test), checking if the braden score alters based on missed or repeated
 
@@ -773,11 +772,11 @@ Braden_t_test
 
 ```
 
-
 ```{r}
-#| label: Chi-sq Test for Nurse and Missed and Reapted Turn
-#| include: false
+#| label: Chi-sq Test for Nurse and Types of Events
 nurse_event_table <- table(fake_data$`Type of Event`, fake_data$`Nurse`)
+# Helping to create a table (contingency)
+# chisq helps determine for two cat vars if there is stat relationship 
 
 # Chi-sq-test
 chi_sq_test_nurse_event <- chisq.test(nurse_event_table)
@@ -792,7 +791,6 @@ chi_sq_test_nurse_event
 
 ```{r}
 #| label: ADD Title 454657658778
-# Label placement 
 # Table for Descriptive results 
 T_and_chisq_table <- data.frame(
   Test = c("T-Test (Braden Scale ~ Type of Event", "Chi-Square (Event ~ Nurse Associated)"), 
@@ -800,11 +798,19 @@ T_and_chisq_table <- data.frame(
   p_value = c(round(Braden_t_test$p.value, 4), round(chi_sq_test_nurse_event$p.value, 2)),
     df = c(round(Braden_t_test$parameter, 2), chi_sq_test_nurse_event$statistic),
   Method = c(Braden_t_test$method, chi_sq_test_nurse_event$method)
-)
+) 
 
 kable(T_and_chisq_table,
       caption = "Hypothesis Test Results: T-Test and Chi-Square",
       col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"))
+
+
+# 
+
+# 
+
+
+
 
 # Comment Help from CHATGPT
 # Help from ChatGPT throughtout Chunk 
