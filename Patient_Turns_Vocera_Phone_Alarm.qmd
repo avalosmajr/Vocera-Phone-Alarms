@@ -159,6 +159,8 @@ The study wanted to investigate what was the most common type of event for each 
 
 
 
+# Braden Scale Analysis 
+Furthermore, a t-test was conducted regadring the Braden Scale scores and type of events, but results displayed no significant difference @tab-Ttest_Chisq_Table. 
 
 
 
@@ -761,7 +763,7 @@ Braden_t_test
 ```
 
 ```{r}
-#| label: Chi-sq Test for Nurse and Types of Events
+#| label: Chisq Test Nurse and Events
 nurse_event_table <- table(fake_data$`Type of Event`, fake_data$`Nurse`)
 # Helping to create a table (contingency)
 # chisq helps determine for two cat vars if there is stat relationship 
@@ -778,7 +780,10 @@ chi_sq_test_nurse_event
 ```
 
 ```{r}
-#| label: T-test and Chi-sq Table 
+#| label: tab-Ttest_Chisq_Table
+#| echo: false
+#| tab-cap: T-test and Chi-sq Table 
+
 T_and_chisq_table <- data.frame(
 # df to have test results stored
 Test = c("T-Test (Braden Scale ~ Type of Event", "Chi-Square (Event ~ Nurse Associated)"), 
