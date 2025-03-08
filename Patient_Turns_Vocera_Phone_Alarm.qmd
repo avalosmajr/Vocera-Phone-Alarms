@@ -113,6 +113,9 @@ set.seed(1234)
 # Generate r-references.bib file (see explanation in the Methods section)
 papaja::r_refs(file = "r-references.bib")
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 
@@ -139,13 +142,12 @@ Data will be extracted from patients before and after the nursing reminders were
 ## Project Deliverables (Approximately 1/2 page)
  
 
-
 ## Results
 ### Nurse Analysis 
   The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. To gain more insight, the day and night shifts were investigated, which showed consistency with missed turn being the most common amongst both shifts; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event. The notable difference between shifts lead to comparison of weekday and weekends, as seen in @fig-Nurse_Weekdayend_Type, which shwoed that weekdays had 36 and 20 more total events and missed turns, respectively. The differences between time of week and shift types made the team curious as to whether if there were specifc nurses responsible for majority of these actions and whether there were anymore associations (e.g., missed vs. repeated, day vs. night). If one refers to @fig-SpecNurse_Event_Amount, the nurses associated with the most events are Nurses C, H, K, and V with 9, 6, 6, 6, respectively. Three out the four nurses commited more missed turns during their day shift (@fig-SpecNurse_Shift_missed). Interestingly, Nurses B, I, K, N, R, S did not obtain one repeated turn while only nurse z was able to avoid commiting a missed turn, @fig-SpecNurse_Event_Amount. 
   
 ### Age Analysis  
-  The patients were separated into four age groups 20-39, 40-59, 60-79, 80+; here, it was shown across all age groups, missed turns were the most common type of event. It is worth noting that within the 60-79 age group, there were 10 more missed than repeated turns, which was double the second age gorups (@fig-Nurse_Event_Age). Surprisingly, missed turns were the most common amongst all levels of risk and age groups, expect for one (80+) which was tied @fig-Age_Type_Risk. 
+  The patients were separated into four age groups 20-39, 40-59, 60-79, 80+; here, it was shown across all age groups, missed turns were the most common type of event. It is worth noting that within the 60-79 age group, there were 10 more missed than repeated turns, which was double the second age gorups (@fig-Nurse_Event_Age). Surprisingly, missed turns were the most common amongst all levels of risk and age groups, expect for one (80+) which was tied @fig-Age_Type_Risk.  
   
 
   
@@ -224,6 +226,10 @@ fake_data <- tibble(
 
 # CHECK
 fake_data
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 ```{r}
@@ -235,6 +241,10 @@ fake_data <- fake_data %>%
 
 # CHECK
 fake_data
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 ```{r}
@@ -265,6 +275,10 @@ fake_data %>%
 # Type of Event Occurrences
 fake_data %>%
   count(`Type of Event`, sort = TRUE) # sort = True places it in descending order 
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 ```{r}
@@ -342,6 +356,9 @@ fake_data <- fake_data %>%
 # Check
 fake_data
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 ```{r}
@@ -380,6 +397,9 @@ ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event T
       plot.margin = margin(10, 10, 10, 10),
       panel.grid.minor = element_blank()) # panel.grid.minor helps get rid of the grid lines
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 ```{r}
@@ -395,6 +415,9 @@ fake_nurse_event_time_date <- fake_nurse_event_time_date  %>%
 
 #Check
 fake_nurse_event_time_date
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -423,6 +446,8 @@ ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = 
       panel.spacing = unit(.5, "lines") # helps spacing want to use when facets are 
        )
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -446,6 +471,9 @@ mutate(
   
 # Check
 fake_nurse_shift
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -480,6 +508,10 @@ fake_nurse_shift %>%
   count(`Type of Event`, sort = TRUE) 
 
 fake_nurse_shift
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 ```{r}
@@ -496,6 +528,10 @@ mutate(
 
 # Check
 fake_nurse_weekdayend
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 ```{r}
@@ -524,6 +560,8 @@ panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.
 plot.margin = margin(10, 10, 10, 10),
 panel.grid.minor = element_blank())
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -538,6 +576,9 @@ fake_patient_event <- fake_patient_event %>%
 
 # Check
 fake_patient_event
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -566,6 +607,9 @@ legend.text = element_text(size = 12),
 panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
 plot.margin = margin(10, 10, 10, 10),
 panel.grid.minor = element_blank())
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -597,6 +641,9 @@ panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.
 plot.margin = margin(10, 10, 10, 10),
 panel.grid.minor = element_blank()) 
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 ```{r}
@@ -607,6 +654,9 @@ result_t_test <- t.test(`Length of Stay` ~ `Type of Event`, data = fake_data)
 
 # Check
 result_t_test
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -631,6 +681,9 @@ fake_patient_event <- fake_patient_event %>%
 
 # Check 
 fake_patient_event
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -662,8 +715,11 @@ ggplot(fake_patient_event, aes(x = `Age_Group`, fill = `Type of Event`)) +
     panel.grid.minor = element_blank()
   )
 
-
 ### chattttttt
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 
@@ -681,6 +737,9 @@ ggplot(fake_patient_event, aes(x = `Age_Group`, fill = `Type of Event`)) +
 #Type of Events
 fake_data %>%
   count(`Type of Event`, sort = TRUE)
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
  
 ```
 
@@ -694,6 +753,10 @@ fake_data.csv <- read_csv("/Users/michaelavalosjr./Repos for Rstudio/Vocera-Phon
 
 # Check
 fake_data.csv
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 
@@ -707,8 +770,9 @@ Braden_t_test <- t.test(`Braden Scale` ~ `Type of Event`, data = fake_data)
 # Check
 Braden_t_test
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
-# Need Chatgpt Comment 
 ```
 
 
@@ -724,8 +788,9 @@ chi_sq_test_nurse_event <- chisq.test(nurse_event_table)
 # Check
 chi_sq_test_nurse_event
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
-# Need Chatgpt Comment 
 ```
 
 ```{r}
@@ -744,6 +809,8 @@ kable(T_and_chisq_table,
       caption = "Hypothesis Test Results: T-Test and Chi-Square",
       col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"))
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -758,7 +825,8 @@ kable(T_and_chisq_table,
 #| include: false
 
 
-
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
 ```
 
@@ -789,9 +857,11 @@ ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"),
     plot.margin = margin(10, 10, 10, 10),
     panel.grid.minor = element_blank())
 
-
-
 # Chatttttttt
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
 ```
 
 
