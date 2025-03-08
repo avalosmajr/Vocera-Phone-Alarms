@@ -136,13 +136,17 @@ Weekly audits are performed through chart review and documented on paper. Data c
 ### *EHR data collection*
 Data will be extracted from patients before and after the nursing reminders were implemented (7/1/2024 to 5/1/2025). Patients prior to the implementation will undergo the same weekly form measurements as mentioned above; additional variables such as race, gender, age, weight, diseases, and history of pressure injury will be recorded. Information collected from the EHR for patients includes MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), turn documentation, race, gender, age, weight, diseases, and history of pressure injury. Information collected from the EHR for nurses includes name, shift, experience, and turn documentation. 
 
-
 ## Project Deliverables (Approximately 1/2 page)
  
 
 
 ## Results
-  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. The day and night shift was investigated, which showed consistency amongst both shifts with missed turn being the most common; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event; furthermore, it was observed that the day 
+### Nurse Analysis 
+  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. To gain more insight, the day and night shifts were investigated, which showed consistency with missed turn being the most common amongst both shifts; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event. The notable difference between shifts lead to comparison of weekday and weekends, as seen in @fig-Nurse_Weekdayend_Type, which shwoed that weekdays had 36 and 20 more total events and missed turns, respectively. The differences between time of week and shift types made the team curious as to whether if there were specifc nurses responsible for majority of these actions and whether there were anymore associations (e.g., missed vs. repeated, day vs. night). If one refers to @fig-SpecNurse_Event_Amount, the nurses associated with the most events are Nurses C, H, K, and V with 9, 6, 6, 6, respectively. Moreover, three out the four nurses commited more missed turns during their day shift (@fig-SpecNurse_Shift_missed). 
+  
+  
+  
+  
   
   ---- talking about committing total amount of missed or repeated; however, across all nurses one was less likely to commit a repeated or missed (for example 6 did not commit a certain type). Interesting, the number of events commited by each nurse was relatively similar excepted for nurse ( -------). the nurses that commited the most events were associated with this type of event -----. however the maxium type of event comitted for each nurse was typically --------.  
   
@@ -211,6 +215,7 @@ The intervention has not been proposed to the Alarms Committee at UCM because th
 
 ```{r}
 #| label: Creation of Fake Data
+#| include: false
 fake_data <- tibble(
   Patient_ID = 1:100,
   Age = sample(20:90, 100, replace = TRUE),
@@ -347,8 +352,10 @@ fake_data
 ```
 
 ```{r}
-#| label: ADD Title 22
-#| include: false
+#| label: fig-SpecNurse_Event_Amount
+#| echo: false
+#| fig-cap: Nurse events and type of event 
+
 ## NURSE DATA ANALYSIS PLOTS pt. 1
 
 # Convert the data back to long
@@ -364,8 +371,8 @@ ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event T
   geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
   # geom_bar creates bar char, stat= "identity" uses the values from data set, position = position_dodge helps make sure the bars are not stacked 
   labs(title = "Number of Events Per Nurse", x = "Nurse", y = "Event Count") +
-  scale_fill_manual(values = c("Count Missed Turn" = "darkblue", 
-                               "Count Repeated Turn" = "darkorange")) + # scale_fill_manual allows for you to place the colors manually 
+  scale_fill_manual(values = c("Count Missed Turn" = "blue", 
+                               "Count Repeated Turn" = "orange")) + # scale_fill_manual allows for you to place the colors manually 
   theme_minimal(base_family = "Times New Roman") +
     theme(
       axis.text.x = element_text(angle = 0, hjust = 0.5, size = 14), # hjust used for overlap prevention for text  
@@ -499,8 +506,9 @@ fake_nurse_weekdayend
 ```
 
 ```{r}
-#| label: ADD Title 77
-#| include: false
+#| label: fig-Nurse_Weekdayend_Type
+#| echo: false
+#| fig-cap: Nurse shift type (weekdayend) and type of turns 
 ## NURSE DATA ANALYSIS PLOT PT.4
 ggplot(fake_nurse_weekdayend, aes(x = Day_Type, fill = `Type of Event`)) +
   geom_bar(position = "dodge", width = 0.6, color = "black") +
@@ -658,9 +666,6 @@ fake_data.csv
 
 
 
-
-
-
 ```{r}
 #| label: ADD Title 45346
 #| include: false
@@ -716,33 +721,6 @@ kable(T_and_chisq_table,
 
 
 
-```{r}
-#| label: ADD Title 03495575756463
-#| include: false
-# Facet Wrap 
-ggplot(fake_data, aes(x = `Nurse`, y = `Length of Stay`, fill = `Type of Event`)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  facet_wrap(~ `Type of Event`, ncol = 1, scales = "free_y") + 
-  labs(title = "Length of Stay by Nurse and Event Type",
-       x = "Nurse", y = "Length of Stay") +
-  theme_minimal(base_family = "Times New Roman") +
-  theme(
-plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
-axis.text.x = element_text(size = 12, hjust = 1, face = "bold", color = "black"),
-axis.text.y = element_text(size = 12, color = "black"),
-axis.title.x = element_text(size = 14, face = "bold"),
-axis.title.y = element_text(size = 14, face = "bold"),
-legend.position = "bottom",
-legend.title = element_text(size= 12, face = "bold"),
-legend.text = element_text(size = 11),
-strip.text = element_text(size = 14, face = "bold"),
-panel.grid.minor = element_blank(),
-panel.spacing = unit(1, "lines")) 
-
-
-```
-
-
 
 
 ```{r}
@@ -752,20 +730,65 @@ fake_nurse_shift
 
 
 
-
-
-
-
-
-
-
-
 ```
 
 
 
+```{r}
+#| label: fig-SpecNurse_Shift_missed
+#| echo: false
+#| fig-cap: Nurse shift and missed turns 
+ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"), 
+       aes(x = Nurse, fill = `Shift_Type`)) +
+  geom_bar(position = "dodge", width = 0.7, color = "black") +
+  labs(title = "x",
+       x = "Nurse",
+       y = "Number of Missed Turns",
+       fill = "Shift Type") +
+  theme_minimal(base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+    axis.text.y = element_text(size = 12, color = "black"),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold"),
+    legend.position = "top",
+    legend.title = element_text(size = 14, face = "bold"),
+    legend.text = element_text(size = 12),
+    panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+    plot.margin = margin(10, 10, 10, 10),
+    panel.grid.minor = element_blank())
 
+```
 
+```{r}
+#| label: ADD Title 57858698696707
+
+#| include: false
+
+ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"), 
+       aes(x = Nurse, fill = `Shift_Type`)) +
+  geom_bar(position = "stack", width = 0.7, color = "black") +
+  labs(title = "Missed Turns by Nurse and Shift",
+       x = "Nurse",
+       y = "Number of Missed Turns",
+       fill = "Shift Type") +
+  scale_fill_manual(values = c("Day Shift" = "blue", "Night Shift" = "orange")) + 
+  theme_minimal(base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+    axis.text.y = element_text(size = 12, color = "black"),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold"),
+    legend.position = "top",
+    legend.title = element_text(size = 14, face = "bold"),
+    legend.text = element_text(size = 12),
+    panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+    plot.margin = margin(10, 10, 10, 10),
+    panel.grid.minor = element_blank())
+
+```
 
 
 
