@@ -142,21 +142,14 @@ Data will be extracted from patients before and after the nursing reminders were
 
 ## Results
 ### Nurse Analysis 
-  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. To gain more insight, the day and night shifts were investigated, which showed consistency with missed turn being the most common amongst both shifts; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event. The notable difference between shifts lead to comparison of weekday and weekends, as seen in @fig-Nurse_Weekdayend_Type, which shwoed that weekdays had 36 and 20 more total events and missed turns, respectively. The differences between time of week and shift types made the team curious as to whether if there were specifc nurses responsible for majority of these actions and whether there were anymore associations (e.g., missed vs. repeated, day vs. night). If one refers to @fig-SpecNurse_Event_Amount, the nurses associated with the most events are Nurses C, H, K, and V with 9, 6, 6, 6, respectively. Moreover, three out the four nurses commited more missed turns during their day shift (@fig-SpecNurse_Shift_missed). 
+  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. To gain more insight, the day and night shifts were investigated, which showed consistency with missed turn being the most common amongst both shifts; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event. The notable difference between shifts lead to comparison of weekday and weekends, as seen in @fig-Nurse_Weekdayend_Type, which shwoed that weekdays had 36 and 20 more total events and missed turns, respectively. The differences between time of week and shift types made the team curious as to whether if there were specifc nurses responsible for majority of these actions and whether there were anymore associations (e.g., missed vs. repeated, day vs. night). If one refers to @fig-SpecNurse_Event_Amount, the nurses associated with the most events are Nurses C, H, K, and V with 9, 6, 6, 6, respectively. Three out the four nurses commited more missed turns during their day shift (@fig-SpecNurse_Shift_missed). Interestingly, Nurses B, I, K, N, R, S did not obtain one repeated turn while only nurse z was able to avoid commiting a missed turn, @fig-SpecNurse_Event_Amount. 
   
+### Age Analysis  
+  The patients were separated into four age groups 20-39, 40-59, 60-79, 80+; here, it was shown across all age groups, missed turns were the most common type of event. It is worth noting that within the 60-79 age group, there were 10 more missed than repeated turns, which was double the second age gorups (@fig-Nurse_Event_Age). Surprisingly, missed turns were the most common amongst all levels of risk and age groups, expect for one (80+) which was tied @fig-Age_Type_Risk. 
   
-  
-  
-  
-  ---- talking about committing total amount of missed or repeated; however, across all nurses one was less likely to commit a repeated or missed (for example 6 did not commit a certain type). Interesting, the number of events commited by each nurse was relatively similar excepted for nurse ( -------). the nurses that commited the most events were associated with this type of event -----. however the maxium type of event comitted for each nurse was typically --------.  
-  
-  
-The study wanted to investigate whether the type of shift affected either the number and/or type of events commited. it was shown that the day shift committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
 
-
-The study wanted to investigate whether events primarily occurred either on weekdays aor weekends (----- check if there is a diff for the type may need to make it). it was shown that the -----  committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
-
-
+  
+  
 
 
 The study wanted to investigate what was the most common type of event for each age, which show (----- check it for braden scale ). it was shown that the -----  committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
@@ -549,8 +542,9 @@ fake_patient_event
 ```
 
 ```{r}
-#| label: ADD Title 99
-#| include: false
+#| label: fig-Nurse_Event_Age
+#| echo: false
+#| fig-cap: Nurse events and Age 
 ## Patient Analysis PLOT pt 1
 ggplot(fake_patient_event, aes(x = Age_Group, fill = `Type of Event`)) +
   geom_bar(position = "dodge", width = 0.8, color = "black") +
@@ -572,7 +566,6 @@ legend.text = element_text(size = 12),
 panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
 plot.margin = margin(10, 10, 10, 10),
 panel.grid.minor = element_blank())
-
 
 ```
 
@@ -619,9 +612,8 @@ result_t_test
 
 ```{r}
 #| label: ADD Title 383
-#| include: false
 ## Patient Stay
-fake_data <- fake_data %>%
+fake_patient_event <- fake_patient_event %>%
   mutate(
     Type_of_Stay = if_else(`Length of Stay` >= 15, "Long Stay", "Normal Stay")
   )
@@ -629,7 +621,7 @@ fake_data <- fake_data %>%
 
 ## High Risk and Patient Stay
 ## Less than 9 is considered severe
-fake_data <- fake_data %>%
+fake_patient_event <- fake_patient_event %>%
   mutate(
     Long_Stay_High_Risk = if_else(
       (`Braden Scale` <= 12 & `Length of Stay` >15) | (`Braden Scale` <9),
@@ -638,9 +630,49 @@ fake_data <- fake_data %>%
     ))
 
 # Check 
-fake_data
+fake_patient_event
 
 ```
+
+```{r}
+#| label: fig-Age_Type_Risk
+#| echo: false
+#| fig-cap: Age type and risk
+
+ggplot(fake_patient_event, aes(x = `Age_Group`, fill = `Type of Event`)) +
+  geom_bar(position = "dodge", color = "black") +
+  facet_wrap(~ Long_Stay_High_Risk) + 
+  scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
+  labs(title = "x",
+       x = "Age Group",
+       y = "Number of Events",
+       fill = "Event Type") +
+  theme_minimal(base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+    axis.text.y = element_text(size = 12, color = "black"),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold"),
+    legend.position = "top",
+    legend.title = element_text(size = 14, face = "bold"),
+    legend.text = element_text(size = 12),
+    panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3),
+    plot.margin = margin(10, 10, 10, 10),
+    panel.grid.minor = element_blank()
+  )
+
+
+### chattttttt
+```
+
+
+
+
+
+
+
+
 
 ```{r}
 #| label: ADD Titlei5i
@@ -668,7 +700,6 @@ fake_data.csv
 
 ```{r}
 #| label: ADD Title 45346
-#| include: false
 # Label Placement 
 # T-test for Braden Scale 
 Braden_t_test <- t.test(`Braden Scale` ~ `Type of Event`, data = fake_data)
@@ -699,7 +730,6 @@ chi_sq_test_nurse_event
 
 ```{r}
 #| label: ADD Title 454657658778
-#| include: false
 # Label placement 
 # Table for Descriptive results 
 T_and_chisq_table <- data.frame(
@@ -726,7 +756,7 @@ kable(T_and_chisq_table,
 ```{r}
 #| label: ADD Title 5785869869609707
 #| include: false
-fake_nurse_shift
+
 
 
 
@@ -759,36 +789,9 @@ ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"),
     plot.margin = margin(10, 10, 10, 10),
     panel.grid.minor = element_blank())
 
+
+
+# Chatttttttt
 ```
-
-```{r}
-#| label: ADD Title 57858698696707
-
-#| include: false
-
-ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"), 
-       aes(x = Nurse, fill = `Shift_Type`)) +
-  geom_bar(position = "stack", width = 0.7, color = "black") +
-  labs(title = "Missed Turns by Nurse and Shift",
-       x = "Nurse",
-       y = "Number of Missed Turns",
-       fill = "Shift Type") +
-  scale_fill_manual(values = c("Day Shift" = "blue", "Night Shift" = "orange")) + 
-  theme_minimal(base_family = "Times New Roman") +
-  theme(
-    plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
-    axis.text.x = element_text(size = 14, face = "bold", color = "black"),
-    axis.text.y = element_text(size = 12, color = "black"),
-    axis.title.x = element_text(size = 16, face = "bold"),
-    axis.title.y = element_text(size = 16, face = "bold"),
-    legend.position = "top",
-    legend.title = element_text(size = 14, face = "bold"),
-    legend.text = element_text(size = 12),
-    panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
-    plot.margin = margin(10, 10, 10, 10),
-    panel.grid.minor = element_blank())
-
-```
-
 
 
