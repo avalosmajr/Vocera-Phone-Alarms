@@ -147,8 +147,9 @@ Data will be extracted from patients before and after the nursing reminders were
   The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. To gain more insight, the day and night shifts were investigated, which showed consistency with missed turn being the most common amongst both shifts; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event. The notable difference between shifts lead to comparison of weekday and weekends, as seen in @fig-Nurse_Weekdayend_Type, which shwoed that weekdays had 36 and 20 more total events and missed turns, respectively. The differences between time of week and shift types made the team curious as to whether if there were specifc nurses responsible for majority of these actions and whether there were anymore associations (e.g., missed vs. repeated, day vs. night). If one refers to @fig-SpecNurse_Event_Amount, the nurses associated with the most events are Nurses C, H, K, and V with 9, 6, 6, 6, respectively. Three out the four nurses commited more missed turns during their day shift (@fig-SpecNurse_Shift_missed). Interestingly, Nurses B, I, K, N, R, S did not obtain one repeated turn while only nurse z was able to avoid commiting a missed turn, @fig-SpecNurse_Event_Amount. 
   
 ### Age Analysis  
-  The patients were separated into four age groups 20-39, 40-59, 60-79, 80+; here, it was shown across all age groups, missed turns were the most common type of event. It is worth noting that within the 60-79 age group, there were 10 more missed than repeated turns, which was double the second age gorups (@fig-Nurse_Event_Age). Surprisingly, missed turns were the most common amongst all levels of risk and age groups, expect for one (80+) which was tied @fig-Age_Type_Risk.  
+  The patients were separated into four age groups 20-39, 40-59, 60-79, 80+; here, it was shown across all age groups, missed turns were the most common type of event. It is worth noting that within the 60-79 age group, there were 10 more missed than repeated turns, which was double the second age gorups (@fig-Nurse_Event_Age). Surprisingly, missed turns were the most common amongst all levels of risk and age groups, expect for one group (80+) which was tied @fig-Age_Type_Risk.  
   
+
 
   
   
@@ -217,7 +218,6 @@ fake_data <- tibble(
   Nurse = sample(LETTERS, 100, replace = TRUE),
   Braden_Scale = sample(6:23, 100, replace = TRUE),
   Length_of_Stay = sample(0:200, 100, replace = TRUE),
-  Nurse_Associated_With_Event = sample(LETTERS, 100, replace = TRUE),
   Type_of_Event = sample(c("Missed Turn", "Repeated Turn"), 100, replace = TRUE),
   Week_of_Event = sample(seq(as.Date("2024-09-01"), as.Date("2025-02-01"), by = "day"), 100, replace = TRUE),
   Time_of_Event = format(sample(seq(ISOdatetime(2024,1,1,0,0,0), ISOdatetime(2025,1,31,23,59,59), by = "hour"), 100, replace = TRUE), "%H:%M:%S"),
@@ -237,7 +237,7 @@ fake_data
 #| include: false
 # Rename and Reorder Columns 
 fake_data <- fake_data %>%
-  select("Patient ID" = "Patient_ID", "Age", "Braden Scale" = "Braden_Scale", "Length of Stay" =  "Length_of_Stay","Type of Event" = "Type_of_Event", "Week of Event" = "Week_of_Event", "Time of Event" = "Time_of_Event", "Date of Event" = "Date_of_Event", "Nurse", "Nurse Associated With Event" = "Nurse_Associated_With_Event")
+  select("Patient ID" = "Patient_ID", "Age", "Braden Scale" = "Braden_Scale", "Length of Stay" =  "Length_of_Stay","Type of Event" = "Type_of_Event", "Week of Event" = "Week_of_Event", "Time of Event" = "Time_of_Event", "Date of Event" = "Date_of_Event", "Nurse")
 
 # CHECK
 fake_data
@@ -350,8 +350,7 @@ fake_data_Repeated
 
 # Capitalize Nurse Letters
 fake_data <- fake_data %>%
-  mutate(Nurse = str_to_title(Nurse),
-        `Nurse Associated With Event` = str_to_title(`Nurse Associated With Event`)) # str_to_title does first letter ; REMINDER IT IS NOT THE TITLE ITS THE DATA IN COLUMN
+  mutate(Nurse = str_to_title(Nurse)) # str_to_title does first letter ; REMINDER IT IS NOT THE TITLE ITS THE DATA IN COLUMN
 
 # Check
 fake_data
@@ -762,10 +761,9 @@ fake_data.csv
 
 
 ```{r}
-#| label: ADD Title 45346
-# Label Placement 
-# T-test for Braden Scale 
+#| label: T-test Braden Score, Missed and Repeated Turn
 Braden_t_test <- t.test(`Braden Scale` ~ `Type of Event`, data = fake_data)
+# Means for two groups is compared to dictate whether the diff is stat sig (t-test), checking if the braden score alters based on missed or repeated
 
 # Check
 Braden_t_test
@@ -777,10 +775,9 @@ Braden_t_test
 
 
 ```{r}
-#| label: ADD Title 43545657
+#| label: Chi-sq Test for Nurse and Missed and Reapted Turn
 #| include: false
-# Label placement 
-nurse_event_table <- table(fake_data$`Type of Event`, fake_data$`Nurse Associated With Event`)
+nurse_event_table <- table(fake_data$`Type of Event`, fake_data$`Nurse`)
 
 # Chi-sq-test
 chi_sq_test_nurse_event <- chisq.test(nurse_event_table)
