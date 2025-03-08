@@ -858,3 +858,9 @@ ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"),
 
 ```
 
+
+
+
+
+
+
