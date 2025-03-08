@@ -233,9 +233,8 @@ fake_data
 ```
 
 ```{r}
-#| label: ADD Title 1
+#| label: Rename and Reorder Columns
 #| include: false
-# Rename and Reorder Columns 
 fake_data <- fake_data %>%
   select("Patient ID" = "Patient_ID", "Age", "Braden Scale" = "Braden_Scale", "Length of Stay" =  "Length_of_Stay","Type of Event" = "Type_of_Event", "Week of Event" = "Week_of_Event", "Time of Event" = "Time_of_Event", "Date of Event" = "Date_of_Event", "Nurse")
 
@@ -248,9 +247,8 @@ fake_data
 ```
 
 ```{r}
-#| label: ADD Title 11
+#| label: Descriptive stats pt. 1
 #| include: false
-## Descriptive stats pt. 1
 fake_data %>%
   summarize(
     mean_age = mean(Age, na.rm = TRUE), # na.rm means it will ignore any missing values
@@ -282,9 +280,8 @@ fake_data %>%
 ```
 
 ```{r}
-#| label: ADD Title 12
+#| label: NURSE DATA ANALYSIS PT.1
 #| include: false
-## NURSE DATA ANALYSIS PT.1
 ## 1. How many events were associated with a nurse  
 fake_nurse_event_data <- fake_data # Moving original set into new one (fake_nurse_event_data) 
 fake_nurse_event_data
@@ -402,9 +399,8 @@ ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event T
 ```
 
 ```{r}
-#| label: ADD Title 33
+#| label: NURSE DATA ANALYSIS PT.2
 #| include: false
-## NURSE DATA ANALYSIS PT.2
 ## Check how nurses do overtime 
 fake_nurse_event_time_date <- fake_data
 fake_nurse_event_time_date <- fake_nurse_event_time_date  %>%
@@ -421,9 +417,8 @@ fake_nurse_event_time_date
 ```
 
 ```{r}
-#| label: ADD Title 44
+#| label: NURSE DATA ANALYSIS PLOTS pt. 2
 #| include: false
-## NURSE DATA ANALYSIS PLOTS pt. 2
 ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = `Nurse`, group = interaction(`Nurse`, `Type of Event`))) +
   geom_line(size = 1) + # geom_line is line graph
   geom_point(size = 2) + # geom_point is scatter graph
@@ -451,9 +446,8 @@ ggplot(fake_nurse_event_time_date, aes(x = `Week of Event`, y= `Count`, color = 
 ```
 
 ```{r}
-#| label: ADD Title 55
+#| label: NURSE DATA ANALYSIS PT.3
 #| include: false
-## NURSE DATA ANALYSIS PT.3
 fake_nurse_shift <- fake_data %>%
 mutate(`Nurse` = as.factor(`Nurse`),
     Hour = as.numeric(format(strptime(`Time of Event`, format = "%H:%M:%S"), "%H")), # parses chr string to date-time  
@@ -514,9 +508,8 @@ fake_nurse_shift
 ```
 
 ```{r}
-#| label: ADD Title 66
+#| label: NURSE DATA ANALYSIS PT.4
 #| include: false
-## NURSE DATA ANALYSIS PT.4
 fake_nurse_weekdayend <- fake_data
 fake_nurse_weekdayend <- fake_nurse_weekdayend  %>%
 mutate(
@@ -565,9 +558,8 @@ panel.grid.minor = element_blank())
 ```
 
 ```{r}
-#| label: ADD Title 88
+#| label: Patient Analysis pt 1
 #| include: false
-## Patient Analysis pt 1
 fake_patient_event <- fake_data
 fake_patient_event <- fake_patient_event %>%
   mutate(Age_Group = cut(Age, breaks = c(20, 40, 60, 80, 100), # cut whatever into a category, breaks will help specify the point where it should be cut off
@@ -613,9 +605,8 @@ panel.grid.minor = element_blank())
 ```
 
 ```{r}
-#| label: ADD Title 00
+#| label: Patient Analysis Plot pt 2
 #| include: false
-## Patient Analysis Plot pt 2
 ## Event type and lOS
 ggplot(fake_data, aes(x= `Type of Event`, y = `Length of Stay`, fill = `Type of Event`)) +
   geom_boxplot(width = 0.5, outlier.color = "red", outlier.shape = NA, outlier.size = 1.5) + # outlier. is just outliers 
@@ -646,9 +637,8 @@ panel.grid.minor = element_blank())
 ```
 
 ```{r}
-#| label: ADD Title 000
+#| label: T test for Los and Type of event
 #| include: false
-# T test for Los and Type of event
 result_t_test <- t.test(`Length of Stay` ~ `Type of Event`, data = fake_data)
 
 # Check
@@ -660,8 +650,7 @@ result_t_test
 ```
 
 ```{r}
-#| label: ADD Title 383
-## Patient Stay
+#| label: Patient Stay and Risk Level
 fake_patient_event <- fake_patient_event %>%
   mutate(
     Type_of_Stay = if_else(`Length of Stay` >= 15, "Long Stay", "Normal Stay")
@@ -743,9 +732,8 @@ fake_data %>%
 ```
 
 ```{r}
-#| label: ADD Title 34954
+#| label: READER
 #| include: false
-# Write fake_data to a .csv file 
 getwd()
 write_csv(fake_data, "fake_data.csv")
 fake_data.csv <- read_csv("/Users/michaelavalosjr./Repos for Rstudio/Vocera-Phone-Alarms/fake_data.csv")
@@ -817,10 +805,6 @@ kable(T_and_chisq_table,
 # Help from ChatGPT throughtout Chunk 
 
 ```
-
-
-
-
 
 
 
