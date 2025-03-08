@@ -790,26 +790,27 @@ chi_sq_test_nurse_event
 ```
 
 ```{r}
-#| label: ADD Title 454657658778
-# Table for Descriptive results 
+#| label: T-test and Chi-sq Table 
 T_and_chisq_table <- data.frame(
-  Test = c("T-Test (Braden Scale ~ Type of Event", "Chi-Square (Event ~ Nurse Associated)"), 
-  Statistic = c(round(Braden_t_test$statistic, 2), round(chi_sq_test_nurse_event$statistic, 2)),
-  p_value = c(round(Braden_t_test$p.value, 4), round(chi_sq_test_nurse_event$p.value, 2)),
-    df = c(round(Braden_t_test$parameter, 2), chi_sq_test_nurse_event$statistic),
-  Method = c(Braden_t_test$method, chi_sq_test_nurse_event$method)
-) 
+# df to have test results stored
+Test = c("T-Test (Braden Scale ~ Type of Event", "Chi-Square (Event ~ Nurse Associated)"), 
+  # t-test and and chi-sq listed
+Statistic = c(round(Braden_t_test$statistic, 2),
+# test stat (tval & chisq val) for both stored 
+round(chi_sq_test_nurse_event$statistic, 2)),
+p_value = c(round(Braden_t_test$p.value, 4),
+# p-val is stored
+round(chi_sq_test_nurse_event$p.value, 2)),
+# p-val is stored
+df = c(round(Braden_t_test$parameter, 2), chi_sq_test_nurse_event$parameter),
+# degreees of freedom 
+Method = c(Braden_t_test$method, chi_sq_test_nurse_event$method)
+) # use of method is stored (e.g., welech and pearson)
 
 kable(T_and_chisq_table,
+      # kable helps a formatted table to be created 
       caption = "Hypothesis Test Results: T-Test and Chi-Square",
       col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"))
-
-
-# 
-
-# 
-
-
 
 
 # Comment Help from CHATGPT
