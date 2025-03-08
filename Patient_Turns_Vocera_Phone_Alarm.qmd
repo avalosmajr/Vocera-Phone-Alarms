@@ -144,7 +144,7 @@ Data will be extracted from patients before and after the nursing reminders were
 
 ## Results
 ### Nurse Analysis 
-  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. To gain more insight, the day and night shifts were investigated, which showed consistency with missed turn being the most common amongst both shifts; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event. The notable difference between shifts lead to comparison of weekday and weekends, as seen in @fig-Nurse_Weekdayend_Type, which shwoed that weekdays had 36 and 20 more total events and missed turns, respectively. The differences between time of week and shift types made the team curious as to whether if there were specifc nurses responsible for majority of these actions and whether there were anymore associations (e.g., missed vs. repeated, day vs. night). If one refers to @fig-SpecNurse_Event_Amount, the nurses associated with the most events are Nurses C, H, K, and V with 9, 6, 6, 6, respectively. Three out the four nurses commited more missed turns during their day shift (@fig-SpecNurse_Shift_missed). Interestingly, Nurses B, I, K, N, R, S did not obtain one repeated turn while only nurse z was able to avoid commiting a missed turn, @fig-SpecNurse_Event_Amount. Finally, it was determined that no association between the nurse and type of event exists based on results from the Chi-square test @tab-Ttest_Chisq_Table. 
+  The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. To gain more insight, the day and night shifts were investigated, which showed consistency with missed turn being the most common amongst both shifts; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event. The notable difference between shifts lead to comparison of weekday and weekends, as seen in @fig-Nurse_Weekdayend_Type, which shwoed that weekdays had 36 and 20 more total events and missed turns, respectively. The differences between time of week and shift types made the team curious as to whether if there were specifc nurses responsible for majority of these actions and whether there were anymore associations (e.g., missed vs. repeated, day vs. night). If one refers to @fig-SpecNurse_Event_Amount, the nurses associated with the most events are Nurses C, H, K, and V with 9, 6, 6, 6, respectively. Three out the four nurses commited more missed turns during their day shift (@fig-SpecNurse_Shift_missed). Interestingly, Nurses B, I, K, N, R, S did not obtain one repeated turn while only nurse z was able to avoid commiting a missed turn, @fig-SpecNurse_Event_Amount. Finally, it was determined that no association between the nurse and type of event exists based on results from the Chi-square test @tbl-Ttest_Chisq_Table. 
   
 ### Age Analysis  
   The patients were separated into four age groups 20-39, 40-59, 60-79, 80+; here, it was shown across all age groups, missed turns were the most common type of event. It is worth noting that within the 60-79 age group, there were 10 more missed than repeated turns, which was double the second age gorups (@fig-Nurse_Event_Age). Surprisingly, missed turns were the most common amongst all levels of risk and age groups, expect for one group (80+) which was tied @fig-Age_Type_Risk.  
@@ -160,7 +160,7 @@ The study wanted to investigate what was the most common type of event for each 
 
 
 # Braden Scale Analysis 
-Furthermore, a t-test noted no significant difference, regarding the Braden Scale scores and type of events @tab-Ttest_Chisq_Table. 
+Furthermore, a t-test noted no significant difference, regarding the Braden Scale scores and type of events @tbl-Ttest_Chisq_Table. 
 
 
 
@@ -780,10 +780,11 @@ chi_sq_test_nurse_event
 ```
 
 ```{r}
-#| label: tab-Ttest_Chisq_Table
+#| label: tbl-Ttest_Chisq_Table
 #| echo: false
-#| tab-cap: Ttest_Chisq_Table
+#| tbl-cap: Ttest_Chisq_Table
 
+# Need to remember tbl not tab
 Ttest_Chisq_Table <- data.frame(
 # df to have test results stored
 Test = c("T-Test (Braden Scale ~ Type of Event", "Chi-Square (Event ~ Nurse Associated)"), 
@@ -856,6 +857,4 @@ ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"),
 # Help from ChatGPT throughtout Chunk 
 
 ```
-
-
 
