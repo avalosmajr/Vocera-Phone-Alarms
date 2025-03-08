@@ -151,10 +151,6 @@ Data will be extracted from patients before and after the nursing reminders were
   
 
 
-  
-  
-
-
 The study wanted to investigate what was the most common type of event for each age, which show (----- check it for braden scale ). it was shown that the -----  committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
 
 
@@ -712,14 +708,6 @@ ggplot(fake_patient_event, aes(x = `Age_Group`, fill = `Type of Event`)) +
 
 ```
 
-
-
-
-
-
-
-
-
 ```{r}
 #| label: ADD Titlei5i
 #| include: false
@@ -837,6 +825,7 @@ ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"),
        x = "Nurse",
        y = "Number of Missed Turns",
        fill = "Shift Type") +
+  scale_fill_manual(values = c("Day Shift" = "blue", "Night Shift" = "orange")) +
   theme_minimal(base_family = "Times New Roman") +
   theme(
     plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
