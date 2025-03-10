@@ -100,7 +100,7 @@ library(flextable)
 library(ftExtra)
 library(knitr)
 library(broom)
-library(KableExtra)
+library(kableExtra)
 
 # In addition to strategically ordering your library calls, 
 # you can use the conflicts_prefer function to specify which 
@@ -1307,8 +1307,17 @@ Method = c(Braden_t_test$method, chi_sq_test_nurse_event$method)
 kable(Ttest_Chisq_Table,
       # kable helps a formatted table to be created 
       caption = "Hypothesis Test Results: T-Test and Chi-Square",
-      col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"))
+      col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"),
+  align = "lcccc") %>%  
+  kable_styling(full_width = FALSE, position = "center", bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  column_spec(1, bold = TRUE) %>%  
+  column_spec(2, width = "2.5cm") %>%
+  column_spec(3, width = "2.5cm") %>%
+  column_spec(4, width = "3cm") %>%
+  column_spec(5, width = "6cm", italic = TRUE)  # Italicize method column
 
+
+# add comments
 
 # Comment Help from CHATGPT
 # Help from ChatGPT throughtout Chunk 
