@@ -100,6 +100,7 @@ library(flextable)
 library(ftExtra)
 library(knitr)
 library(broom)
+library(KableExtra)
 
 # In addition to strategically ordering your library calls, 
 # you can use the conflicts_prefer function to specify which 
@@ -328,13 +329,13 @@ fake_nurse_shift
 #| echo: false
 #| fig-width: 5
 #| fig-height: 3
-#| fig-cap: Nurse events and shift type
+#| fig-cap: The two types of events (missed and repeated) and their occurrences during the nurses two types of shifts (day and night).
 ggplot(fake_nurse_shift, aes(x= `Shift_Type`, fill= `Type of Event`)) +
   geom_bar(position = "stack", width = 0.7, color = "black") +
   geom_text(stat = "count", aes(label = after_stat(count)), 
     position = position_stack(vjust = 0.5), size = 6, color = "white") + # geom_text is labels/text/values for bars here, aes(label = ..count..) is just the count for each category, position _stack places the label inside the bars, vjust helping to center text (vertically remember hjust)
   scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
-  labs(title = "Missed and Repeated Turn Occurrence by Shift",
+  labs(title = "Event Type Occurrence by Shift",
        x = "Shift Type",
        y = "Number of Events",
        fill = "Event Type") +
@@ -384,18 +385,18 @@ fake_nurse_weekdayend
 #| echo: false
 #| fig-width: 5
 #| fig-height: 3
-#| fig-cap: Nurse shift type (weekdayend) and type of turns 
+#| fig-cap: The two types of events (missed and repeated) and their occurrences during weekdays and weekends.   
 ## NURSE DATA ANALYSIS PLOT PT.4
 ggplot(fake_nurse_weekdayend, aes(x = Day_Type, fill = `Type of Event`)) +
   geom_bar(position = "dodge", width = 0.6, color = "black") +
   scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
-  labs(title = "Event Occurrence on Weekdays vs. Weekends",
+  labs(title = "Event Type Occurrence on Weekdays vs. Weekends",
        x = "Day Type",
        y = "Number of Events",
        fill = "Event Type") +
   theme_minimal(base_family = "Times New Roman") +
 theme(
-plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+plot.title = element_text(size = 15, face = "bold", hjust = 0.5),
 axis.text.x = element_text(size = 10, face = "bold", color = "black"),
 axis.text.y = element_text(size = 10, color = "black"),
 axis.title.x = element_text(size = 12, face = "bold"),
@@ -417,8 +418,7 @@ panel.grid.minor = element_blank())
 #| echo: false
 #| fig-width: 5
 #| fig-height: 3
-#| fig-cap: Nurse events and type of event 
-
+#| fig-cap: The amount and type of events (missed and repeated) commited by each nurse.
 ## NURSE DATA ANALYSIS PLOTS pt. 1
 
 # Convert the data back to long
@@ -442,7 +442,7 @@ ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event T
       axis.text.y = element_text(size = 10),
       axis.title.x = element_text(size = 12, face = "bold"),
       axis.title.y = element_text(size = 12, face = "bold"),
-      plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+      plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
       legend.position = "top",
       legend.title = element_text(size = 10, face = "bold"),
       legend.text = element_text(size = 10),
@@ -461,11 +461,11 @@ ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event T
 #| echo: false
 #| fig-width: 5
 #| fig-height: 3
-#| fig-cap: Nurse shift and missed turns 
+#| fig-cap: The top five nurses that committed the most events and their event type. 
 ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"), 
        aes(x = Nurse, fill = `Shift_Type`)) +
   geom_bar(position = "dodge", width = 0.7, color = "black") +
-  labs(title = "x",
+  labs(title = "Most Occurrences by Nurses",
        x = "Nurse",
        y = "Number of Missed Turns",
        fill = "Shift Type") +
@@ -516,7 +516,7 @@ fake_patient_event
 #| echo: false
 #| fig-width: 5
 #| fig-height: 3
-#| fig-cap: Nurse events and Age 
+#| fig-cap: The amount and type of events committed per age group. 
 ## Patient Analysis PLOT pt 1
 ggplot(fake_patient_event, aes(x = Age_Group, fill = `Type of Event`)) +
   geom_bar(position = "dodge", width = 0.8, color = "black") +
@@ -576,19 +576,19 @@ fake_patient_event
 #| echo: false
 #| fig-width: 5
 #| fig-height: 3
-#| fig-cap: Age type and risk
+#| fig-cap: The amount and type of events committed based on patients age group and risk-level. 
 
 ggplot(fake_patient_event, aes(x = `Age_Group`, fill = `Type of Event`)) +
   geom_bar(position = "dodge", color = "black") +
   facet_wrap(~ Long_Stay_High_Risk) + 
   scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
-  labs(title = "x",
+  labs(title = "Event Occurrences by Risk-Level",
        x = "Age Group",
        y = "Number of Events",
        fill = "Event Type") +
   theme_minimal(base_family = "Times New Roman") +
   theme(
-    plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+    plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
     axis.text.x = element_text(size = 10, face = "bold", color = "black"),
     axis.text.y = element_text(size = 10, color = "black"),
     axis.title.x = element_text(size = 12, face = "bold"),
@@ -651,7 +651,7 @@ chi_sq_test_nurse_event
 #| echo: false
 #| tbl-width: 5
 #| tbl-height: 3
-#| tbl-cap: Ttest_Chisq_Table
+#| tbl-cap: T-test and Chi-square test Table. 
 
 # Need to remember tbl not tab
 Ttest_Chisq_Table <- data.frame(
@@ -673,7 +673,12 @@ Method = c(Braden_t_test$method, chi_sq_test_nurse_event$method)
 kable(Ttest_Chisq_Table,
       # kable helps a formatted table to be created 
       caption = "Hypothesis Test Results: T-Test and Chi-Square",
-      col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"))
+      col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method")) %>%
+  kable_styling(full_width = FALSE, position = "center", bootstrap_options = c("striped", "hover", "condensed")) %>%
+  column_spec(2, width = "2cm") %>%
+  column_spec(3, width = "2cm") %>%
+  column_spec(4, width = "3cm") %>%
+  column_spec(5, width = "5cm")
 
 
 # Comment Help from CHATGPT
