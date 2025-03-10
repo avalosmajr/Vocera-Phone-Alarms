@@ -118,29 +118,33 @@ papaja::r_refs(file = "r-references.bib")
 
 ```
 
-
-## Format note: Independent Project Rough Draft should be 3-4 double-spaced pages, excluding the attached bibliography.
-
 ## Introduction
   Nurses within intensive care units (ICUs) carry a significant responsibility of ensuring their patient(s) do not develop a hospital-acquired pressure injury (HAPI). Fortunately, current PI prevention approaches do not solely rely on personal knowledge and decision-making but instead guide through skin and risk assessments (e.g., Braden Scale) and repositioning. However, nurses are confronted with countless variables that may affect their performance, including but not limited to heavy workloads, fast-paced environments, and long hours. Collectively, this leads to inadvertent missed turns and documentation, increasing the patient’s risk for a HAPI. Therefore, there is a current need to better equip nurses to allow them to provide the care they are capable of. The current project aims to reduce missed patient turns and increase turn documentation within the SICU and BICU through alarms on the nurses’ Vocera phones. Characteristics of the intervention include the alarm being low-priority and alerting every two hours (totaling six times per shift); furthermore, the nurse is allowed to choose their own alarm and obtain the ability to use the snooze feature to silence. The primary requirement is that nurses put the alarm into their Vocera phone, which needs to be set at even hours. The effectiveness of the implemented intervention will be analyzed by comparing previous patient data within the electronic health records (EHR). This study will help determine whether phone alarm reminders can reduce missed patient turns and increase turn documentation. 
 
 ## Research Question
   How effective are the Vocera phone alarms in reminding SICU and BICU nurses to reposition patients and document turns in efforts to prevent hospital-acquired pressure injuries?  
 
-## Literature Review (Approximately 1 page) NEED LIKE 2 MORE SENTENCES 
-  For approximately three decades, the Braden Scale has been adopted and served as the primary practice for PI prevention within the United States; nevertheless, PIs remain a concern for hospitals, especially within the intensive care units (ICUs) [@kring2007reliability; @lyder2008pressure; @wei2020predictive]. As technology continues to evolve, it is necessary to utilize even its most simplistic offers, such as alarms, which have shown to be effective in PI prevention. A computer on-screen list, which served as a reminder system, helped the healthcare staff to know the patient’s most recent risk assessment, PI location, and arrival date [@sebastian-viana2016reduction]. The reminder system demonstrated its effectiveness through a reduction of PIs developed [@sebastian-viana2016reduction]. Group A, who was not exposed to the intervention in 2009, reported 84 PIs out of the 9,263 patients, while Group B, who were involved in the reminder system, reported that out of the 9,220 patients, only 59 developed PIs [@sebastian-viana2016reduction]. Moreover, technology in PI prevention consists of various interventions like wearable sensors, which have been classified as “cost-effective”, decrease HAPI development, and improve turn compliance; however, the claim can be made that additional efforts should be made before the purchases of LEAF Sensors at $250/sensor [@crotty2023using]. The Vocera phone alarms may aid in reminding nurses to input turn documentation, turn patients every two hours, and improve patient outcomes through a more cost-effective approach. The intervention shows there is no current need to conduct human subject testing to improve the prevention of PIs; instead, it is necessary to equip nurses better to allow for them to provide the most efficient care.
-
-# NEED TO PUT ONE OF THE CITAITONS AT THE BEGINING TO MEET REQS
+## Literature Review
+For approximately three decades, the Braden Scale has been adopted and served as the primary practice for PI prevention within the United States; nevertheless, PIs remain a concern for hospitals, especially within the ICUs [@kring2007reliability; @lyder2008pressure; @wei2020predictive]. As technology continues to evolve, it is necessary to utilize even its most simplistic offers, such as alarms, which have been shown to be effective in PI prevention. A computer on-screen list, which served as a reminder system, helped the healthcare staff to know the patient’s most recent risk assessment, PI location, and arrival date [@sebastian-viana2016reduction]. The reminder system demonstrated its effectiveness through a reduction of PIs developed [@sebastian-viana2016reduction]. Group A, who was not exposed to the intervention in 2009, reported 84 PIs out of the 9,263 patients, while Group B, who were involved in the reminder system, reported that out of the 9,220 patients, only 59 developed PIs [@sebastian-viana2016reduction]. Moreover, technology in PI prevention consists of various interventions like wearable sensors, which have been associated with cost-effectiveness, decreased HAPI development, and improved turn compliance; however, the claim can be made that additional efforts should be explored before the purchases of LEAF Sensors at $250/sensor [@crotty2023using]. Interestingly, a study conducted by [@Harmon2016] helped to display that cueing (e.g., verbal) can improve rates for patient turns; moreover, musical cues associated with repositioning demonstrated additional potential [@Yap2013]. Therefore, the Vocera phone alarms may contribute to reminding nurses to input turn documentation, turn patients every two hours, and improve patient outcomes through a more cost-effective approach. The intervention can possibly better equip nurses and allow them to provide the most efficient care.
 
 ## Methods 
 ### *Data storage*
-Weekly audits are performed through chart review and documented on paper. Data collected through audit includes patient initials, room number, MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), total missed turns, and percentage of turn success for that patients that week. The weekly audit papers remain with Marianne Banas, RN, and Peggy Zemansky, RN, BSN. For this comparison, the data will be transferred from paper and stored within REDCap to ensure the protection of sensitive information. Furthermore, it should be noted that identifiers will be removed. Access to the weekly audit forms includes Michael Avalos Jr., Marianne Banas, RN, and Peggy Zemansky, RN, BSN, CCRN. Access to REDCap will include Michael Avalos Jr. as the primary project owner but may include Marianne Banas, RN, and Peggy Zemansky, RN, BSN, upon request. 
+Weekly audits are performed through chart review and documented on paper. Data collected through audit includes patient initials, room number, MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), total missed turns, and percentage of turn success for that patient that week. The weekly audit papers remain with Marianne Banas, RN, and Peggy Zemansky, RN, BSN. For this comparison, the data will be transferred from paper and stored within REDCap to ensure the protection of sensitive information. Furthermore, it should be noted that identifiers will be removed. Access to the weekly audit forms includes Michael Avalos Jr., Marianne Banas, RN, and Peggy Zemansky, RN, BSN, CCRN. Access to REDCap will include Michael Avalos Jr. as the primary project owner but may include Marianne Banas, RN, and Peggy Zemansky, RN, BSN, upon request. 
 
 ### *EHR data collection*
 Data will be extracted from patients before and after the nursing reminders were implemented (7/1/2024 to 5/1/2025). Patients prior to the implementation will undergo the same weekly form measurements as mentioned above; additional variables such as race, gender, age, weight, diseases, and history of pressure injury will be recorded. Information collected from the EHR for patients includes MRN, length of stay, Braden Score, turned Q2, description (time of event, type of event, and nurse associated with event), turn documentation, race, gender, age, weight, diseases, and history of pressure injury. Information collected from the EHR for nurses includes name, shift, experience, and turn documentation. 
 
 ## Project Deliverables (Approximately 1/2 page)
- 
+### Data Storage:
+- Information and data collected through audits and EHR will be placed in a secure storage known as REDCap with access available to only Michael Avalos Jr., Marianne Banas, RN, and Peggy Zemansky, RN, BSN, CCRN.
+	
+### Data Analysis and Quality Improvement Report: 
+- A detailed pre-intervention and intervention analysis will help evaluate the effectiveness of the Vocera phone alarms across numerous variables (e.g., patients, shifts, and nurses). 
+
+- Based on data and observations, recommendations will be proposed for the current intervention’s probable continual usage and before its possible implementation into additional units at UCM. 
+
+### Final Presentation:
+- A formal presentation will summarize the main findings for MS Biomedical Sciences and UCM.  
 
 ## Results
 ### Nurse Analysis 
@@ -153,12 +157,8 @@ Data will be extracted from patients before and after the nursing reminders were
 
 The study wanted to investigate what was the most common type of event for each age, which show (----- check it for braden scale ). it was shown that the -----  committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
 
-
-
 # Braden Scale Analysis 
 Furthermore, a t-test noted no significant difference, regarding the Braden Scale scores and type of events @tbl-Ttest_Chisq_Table. 
-
-
 
 ## Timeline
 The timeline displayed below illustrates the plans going forward. 
@@ -166,7 +166,7 @@ The timeline displayed below illustrates the plans going forward.
 ### **Stage One: Quality Improvement Form** 
 - Resubmit quality improvement form by **03/22/25**. 
 
-### **Stage Two: Surverys**
+### **Stage Two: Surveys**
   - Send out surveys to nursing staff by **04/15/25**. 
 
 ### **Stage Three: Data Storage**
@@ -182,22 +182,8 @@ The timeline displayed below illustrates the plans going forward.
 ### **Stage Six: Final Write-up**
 - Have Final write-up completed by **5/20/25**
 
-
 ## Conclusion (Approximately 1/4 page)
-While nurses provide appropriate care, the continuous mental and physical demands allow for an increase in unintentional human error (e.g., missed documentation and turns), reducing efficiency. Therefore, this demonstrates the need to understand the extent to which existing cost-effective tools, such as the Vocera phone alarms, may help improve patient outcomes and nursing performance. Additionally, the project will review the patient’s demographics and health status to understand whether further variables are affecting outcomes
-
-
-The project aims to reduce missed turns within the SICU and BICU through alarms on the nurse's Vocera phones, reminding them to turn their patient(s) every two hours. The effectiveness of the implemented intervention will be analyzed through a comparison of previous patient data within the EHR.  
-
-
-
-Nurses are responsible for ensuring a patient does not develop a pressure injury (PI), which is currently achieved through skin and risk assessments (e.g., Braden Scale) and repositioning. Furthermore, nurses are confronted with countless variables that may affect their performance, including but not limited to heavy workloads, fast-paced environments, and long hours. Collectively, this leads to inadvertent missed documentation and turns, increasing the patient's risk for a PI. 
-
-
-
-The intervention has not been proposed to the Alarms Committee at UCM because the alarm itself is not automatic; for instance, alarms that go from the monitor to the staff phone are set alarms. The current intervention may allow the RN to pick their own alarm but requires them to put it into their Vocera phone, which will be set at even hours, alert every two hours, and occur six times per shift. It should be noted that it is not a high-priority alarm, and one may use the snooze feature to si. A decision was made regarding alarm fatigue, which is not classified as a concern here based on the intervention’s collective characteristics of reminding the RN through a phone every two hours (six times per shift), ability to use the snooze feature to si, and not being a high-priority alarm. The current state of the Vocera phone alarms has overwhelmingly increased turn documentation within the SICU and BICU (e.g., 45-50% to 97-98% and no new sacral HAPIs). Nonetheless, questions may arise regarding its effectiveness in the future, such as whether it can become “another alarm,” is reasonable. However, the alarm does carry uniqueness in comparison to others. The alarm obtains a specific known purpose (e.g., turn patient and documentation) and can not be classified or associated as a false alarm. Instead, it is one that alerts at a known set time correlated to a required action. While preventative measures have been implemented and shown to be effective, it is essential not to allow healthcare workers to fall below what is expected of them, regardless of the factors at play. Therefore, the rise in technology use calls for the attempt to dictate whether alarms on Vocera phones may improve missed patient turns, helping to combat the undesired variables nurses face. 
-
-
+This study intends to determine the effectiveness of the reminders from the Vocera phone in turn documentation compliance and reducing missed patient turns. There is no argument that nurses provide appropriate care; however, continuous mental and physical demands increase unintentional human error (e.g., missed documentation and turns), reducing efficiency. While technology advances, it is essential to understand whether already purchased electronic devices can contribute to a nurse’s provided care. Therefore, it demonstrates the need to understand the extent to which existing cost-effective tools, such as the Vocera phone alarms, may help improve patient outcomes and nursing performance. 
 
 ## References
 
