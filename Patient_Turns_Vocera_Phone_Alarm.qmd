@@ -1304,20 +1304,6 @@ df = c(round(Braden_t_test$parameter, 2), chi_sq_test_nurse_event$parameter),
 Method = c(Braden_t_test$method, chi_sq_test_nurse_event$method)
 ) # use of method is stored (e.g., welech and pearson)
 
-kable(Ttest_Chisq_Table,
-      # kable helps a formatted table to be created 
-      caption = "Hypothesis Test Results: T-Test and Chi-Square",
-      col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"),
-  align = "lcccc") %>%  
-  kable_styling(full_width = FALSE, position = "center", bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
-  column_spec(1, bold = TRUE) %>%  
-  column_spec(2, width = "2.5cm") %>%
-  column_spec(3, width = "2.5cm") %>%
-  column_spec(4, width = "3cm") %>%
-  column_spec(5, width = "6cm", italic = TRUE)  # Italicize method column
-
-
-# add comments
 
 # Comment Help from CHATGPT
 # Help from ChatGPT throughtout Chunk 
