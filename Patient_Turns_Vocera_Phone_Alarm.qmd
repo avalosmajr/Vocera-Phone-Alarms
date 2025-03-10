@@ -151,15 +151,255 @@ Data will be extracted from patients before and after the nursing reminders were
 ### Nurse Analysis 
   The most committed type of event were missed turns (60) in comparison to repeated turns (40), as seen in @fig-Nurse_Shift_Event. To gain more insight, the day and night shifts were investigated, which showed consistency with missed turn being the most common amongst both shifts; however, the day shift was associated with 16 more total events than the night shift @fig-Nurse_Shift_Event. The notable difference between shifts lead to comparison of weekday and weekends, as seen in @fig-Nurse_Weekdayend_Type, which shwoed that weekdays had 36 and 20 more total events and missed turns, respectively. The differences between time of week and shift types made the team curious as to whether if there were specifc nurses responsible for majority of these actions and whether there were anymore associations (e.g., missed vs. repeated, day vs. night). If one refers to @fig-SpecNurse_Event_Amount, the nurses associated with the most events are Nurses C, H, K, and V with 9, 6, 6, 6, respectively. Three out the four nurses commited more missed turns during their day shift (@fig-SpecNurse_Shift_missed). Interestingly, Nurses B, I, K, N, R, S did not obtain one repeated turn while only nurse z was able to avoid commiting a missed turn, @fig-SpecNurse_Event_Amount. Finally, it was determined that no association between the nurse and type of event exists based on results from the Chi-square test @tbl-Ttest_Chisq_Table. 
   
+  
+```{r}
+#| label: fig-Nurse_Shift_Event
+#| echo: false
+#| fig-cap: Nurse events and shift type
+ggplot(fake_nurse_shift, aes(x= `Shift_Type`, fill= `Type of Event`)) +
+  geom_bar(position = "stack", width = 0.7, color = "black") +
+  geom_text(stat = "count", aes(label = ..count..), 
+    position = position_stack(vjust = 0.5), size = 6, color = "white") + # geom_text is labels/text/values for bars here, aes(label = ..count..) is just the count for each category, position _stack places the label inside the bars, vjust helping to center text (vertically remember hjust)
+  scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
+  labs(title = "Missed and Repeated Turn Occurrence by Shift",
+       x = "Shift Type",
+       y = "Number of Events",
+       fill = "Event Type") +
+  theme_minimal(base_family = "Times New Roman") +
+  theme(
+plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
+axis.title.x = element_text(size = 16, face = "bold"),
+axis.title.y = element_text(size = 16, face = "bold"),
+legend.position = "top",
+legend.title = element_text(size = 14, face = "bold"),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+plot.margin = margin(10, 10, 10, 10),
+panel.grid.minor = element_blank())
+
+fake_nurse_shift %>%
+  count(`Type of Event`, sort = TRUE) 
+
+fake_nurse_shift
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+```
+
+```{r}
+#| label: fig-Nurse_Weekdayend_Type
+#| echo: false
+#| fig-cap: Nurse shift type (weekdayend) and type of turns 
+## NURSE DATA ANALYSIS PLOT PT.4
+ggplot(fake_nurse_weekdayend, aes(x = Day_Type, fill = `Type of Event`)) +
+  geom_bar(position = "dodge", width = 0.6, color = "black") +
+  scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
+  labs(title = "Event Occurrence on Weekdays vs. Weekends",
+       x = "Day Type",
+       y = "Number of Events",
+       fill = "Event Type") +
+  theme_minimal(base_family = "Times New Roman") +
+theme(
+plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
+axis.title.x = element_text(size = 16, face = "bold"),
+axis.title.y = element_text(size = 16, face = "bold"),
+legend.position = "top",
+legend.title = element_text(size = 14, face = "bold"),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+plot.margin = margin(10, 10, 10, 10),
+panel.grid.minor = element_blank())
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+```
+  
+  
+```{r}
+#| label: fig-SpecNurse_Event_Amount
+#| echo: false
+#| fig-cap: Nurse events and type of event 
+
+## NURSE DATA ANALYSIS PLOTS pt. 1
+
+# Convert the data back to long
+fake_nurse_event_data_Perc_long <- fake_nurse_event_data_Perc
+fake_nurse_event_data_Perc_long <- fake_nurse_event_data_Perc_long %>%
+pivot_longer(cols = c(`Count Missed Turn`, `Count Repeated Turn`), 
+              names_to = "Event Type", values_to = "Count")
+
+########################### ########################### ###########################
+
+# 1 Bar Chart (# of Events / Nurse)
+ggplot(fake_nurse_event_data_Perc_long, aes(x = Nurse, y= Count, fill = `Event Type`)) + #aes is aesthetic, fill is type of aesthetic and here bars are filled based on event type
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
+  # geom_bar creates bar char, stat= "identity" uses the values from data set, position = position_dodge helps make sure the bars are not stacked 
+  labs(title = "Number of Events Per Nurse", x = "Nurse", y = "Event Count") +
+  scale_fill_manual(values = c("Count Missed Turn" = "blue", 
+                               "Count Repeated Turn" = "orange")) + # scale_fill_manual allows for you to place the colors manually 
+  theme_minimal(base_family = "Times New Roman") +
+    theme(
+      axis.text.x = element_text(angle = 0, hjust = 0.5, size = 14), # hjust used for overlap prevention for text  
+      axis.text.y = element_text(size = 12),
+      axis.title.x = element_text(size = 14, face = "bold"),
+      axis.title.y = element_text(size = 14, face = "bold"),
+      plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+      legend.position = "top",
+      legend.title = element_text(size = 14, face = "bold"),
+      legend.text = element_text(size = 12),
+      panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+      plot.margin = margin(10, 10, 10, 10),
+      panel.grid.minor = element_blank()) # panel.grid.minor helps get rid of the grid lines
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
+```
+  
+  
+```{r}
+#| label: fig-SpecNurse_Shift_missed
+#| echo: false
+#| fig-cap: Nurse shift and missed turns 
+ggplot(fake_nurse_shift %>% filter(`Type of Event` == "Missed Turn"), 
+       aes(x = Nurse, fill = `Shift_Type`)) +
+  geom_bar(position = "dodge", width = 0.7, color = "black") +
+  labs(title = "x",
+       x = "Nurse",
+       y = "Number of Missed Turns",
+       fill = "Shift Type") +
+  scale_fill_manual(values = c("Day Shift" = "blue", "Night Shift" = "orange")) +
+  theme_minimal(base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(size = 22, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+    axis.text.y = element_text(size = 12, color = "black"),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold"),
+    legend.position = "top",
+    legend.title = element_text(size = 14, face = "bold"),
+    legend.text = element_text(size = 12),
+    panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+    plot.margin = margin(10, 10, 10, 10),
+    panel.grid.minor = element_blank())
+
+# Chatttttttt
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
+```
+ 
+  
 ### Age Analysis  
   The patients were separated into four age groups 20-39, 40-59, 60-79, 80+; here, it was shown across all age groups, missed turns were the most common type of event. It is worth noting that within the 60-79 age group, there were 10 more missed than repeated turns, which was double the second age gorups (@fig-Nurse_Event_Age). Surprisingly, missed turns were the most common amongst all levels of risk and age groups, expect for one group (80+) which was tied @fig-Age_Type_Risk.  
   
+```{r}
+#| label: fig-Nurse_Event_Age
+#| echo: false
+#| fig-cap: Nurse events and Age 
+## Patient Analysis PLOT pt 1
+ggplot(fake_patient_event, aes(x = Age_Group, fill = `Type of Event`)) +
+  geom_bar(position = "dodge", width = 0.8, color = "black") +
+  scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
+  labs(title = "Event Occurrence by Age Group",
+       x = "Age Group",
+       y = "Number of Events",
+       fill = "Event Type") + 
+  theme_minimal(base_family = "Times New Roman") +
+theme(
+plot.title = element_text(size = 24, face = "bold", hjust = 0.5),
+axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+axis.text.y = element_text(size = 12, color = "black"),
+axis.title.x = element_text(size = 16, face = "bold"),
+axis.title.y = element_text(size = 16, face = "bold"),
+legend.position = "top",
+legend.title = element_text(size = 14, face = "bold"),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3), 
+plot.margin = margin(10, 10, 10, 10),
+panel.grid.minor = element_blank())
 
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
 
+```
+  
+```{r}
+#| label: fig-Age_Type_Risk
+#| echo: false
+#| fig-cap: Age type and risk
+
+ggplot(fake_patient_event, aes(x = `Age_Group`, fill = `Type of Event`)) +
+  geom_bar(position = "dodge", color = "black") +
+  facet_wrap(~ Long_Stay_High_Risk) + 
+  scale_fill_manual(values = c("Missed Turn" = "blue", "Repeated Turn" = "orange")) +
+  labs(title = "x",
+       x = "Age Group",
+       y = "Number of Events",
+       fill = "Event Type") +
+  theme_minimal(base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(size = 14, face = "bold", color = "black"),
+    axis.text.y = element_text(size = 12, color = "black"),
+    axis.title.x = element_text(size = 16, face = "bold"),
+    axis.title.y = element_text(size = 16, face = "bold"),
+    legend.position = "top",
+    legend.title = element_text(size = 14, face = "bold"),
+    legend.text = element_text(size = 12),
+    panel.grid.major = element_line(color = "gray90", linetype = "dashed", size = 0.3),
+    plot.margin = margin(10, 10, 10, 10),
+    panel.grid.minor = element_blank()
+  )
+
+### chattttttt
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+
+```
+  
 The study wanted to investigate what was the most common type of event for each age, which show (----- check it for braden scale ). it was shown that the -----  committed ---- however for both shifts were popular in the sense that Missed turn was the most committed 
 
 # Braden Scale Analysis 
 Furthermore, a t-test noted no significant difference, regarding the Braden Scale scores and type of events @tbl-Ttest_Chisq_Table. 
+
+```{r}
+#| label: tbl-Ttest_Chisq_Table
+#| echo: false
+#| tbl-cap: Ttest_Chisq_Table
+
+# Need to remember tbl not tab
+Ttest_Chisq_Table <- data.frame(
+# df to have test results stored
+Test = c("T-Test (Braden Scale ~ Type of Event", "Chi-Square (Event ~ Nurse Associated)"), 
+  # t-test and and chi-sq listed
+Statistic = c(round(Braden_t_test$statistic, 2),
+# test stat (tval & chisq val) for both stored 
+round(chi_sq_test_nurse_event$statistic, 2)),
+p_value = c(round(Braden_t_test$p.value, 4),
+# p-val is stored
+round(chi_sq_test_nurse_event$p.value, 2)),
+# p-val is stored
+df = c(round(Braden_t_test$parameter, 2), chi_sq_test_nurse_event$parameter),
+# degreees of freedom 
+Method = c(Braden_t_test$method, chi_sq_test_nurse_event$method)
+) # use of method is stored (e.g., welech and pearson)
+
+kable(Ttest_Chisq_Table,
+      # kable helps a formatted table to be created 
+      caption = "Hypothesis Test Results: T-Test and Chi-Square",
+      col.names = c("Test", "Statistic", "p-value", "Degress of Freedom", "Method"))
+
+
+# Comment Help from CHATGPT
+# Help from ChatGPT throughtout Chunk 
+```
 
 ## Timeline
 The timeline displayed below illustrates the plans going forward. 
